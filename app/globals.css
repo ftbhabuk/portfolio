@@ -1,27 +1,445 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Geist Font Face Declarations */
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Tailwind v4 design tokens with semantic color system */
+@custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
+
+:root {
+  --background: hsl(222 14% 14%);
+  --foreground: hsl(152 60% 75%);
+  --foreground-secondary: hsl(152 60% 75% / 0.7);
+  --foreground-tertiary: hsl(152 60% 75% / 0.5);
+  --accent: hsl(152 60% 75% / 0.1);
+  --border: hsl(152 60% 75% / 0.15);
+  --link: hsl(189 60% 75%);
+  --transition-bezier: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --card: hsl(222 14% 16%);
+  --card-foreground: hsl(152 60% 75%);
+  --popover: hsl(222 14% 16%);
+  --popover-foreground: hsl(152 60% 75%);
+  --primary: hsl(152 60% 75%);
+  --primary-foreground: hsl(222 14% 14%);
+  --secondary: hsl(280 40% 70%);
+  --secondary-foreground: hsl(222 14% 14%);
+  --muted: hsl(222 14% 20%);
+  --muted-foreground: hsl(152 60% 75% / 0.6);
+  --accent: hsl(280 40% 70%);
+  --accent-foreground: hsl(222 14% 14%);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --input: hsl(222 14% 20%);
+  --ring: hsl(152 60% 75% / 0.3);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.5rem;
+  --sidebar: hsl(222 14% 16%);
+  --sidebar-foreground: hsl(152 60% 75%);
+  --sidebar-primary: hsl(152 60% 75%);
+  --sidebar-primary-foreground: hsl(222 14% 14%);
+  --sidebar-accent: hsl(222 14% 20%);
+  --sidebar-accent-foreground: hsl(152 60% 75%);
+  --sidebar-border: hsl(152 60% 75% / 0.15);
+  --sidebar-ring: hsl(152 60% 75% / 0.3);
+}
+
+.dark {
+  --background: hsl(222 14% 14%);
+  --foreground: hsl(152 60% 75%);
+  --foreground-secondary: hsl(152 60% 75% / 0.7);
+  --foreground-tertiary: hsl(152 60% 75% / 0.5);
+  --accent: hsl(152 60% 75% / 0.1);
+  --border: hsl(152 60% 75% / 0.15);
+  --link: hsl(189 60% 75%);
+  --card: hsl(222 14% 16%);
+  --card-foreground: hsl(152 60% 75%);
+  --popover: hsl(222 14% 16%);
+  --popover-foreground: hsl(152 60% 75%);
+  --primary: hsl(152 60% 75%);
+  --primary-foreground: hsl(222 14% 14%);
+  --secondary: hsl(280 40% 70%);
+  --secondary-foreground: hsl(222 14% 14%);
+  --muted: hsl(222 14% 20%);
+  --muted-foreground: hsl(152 60% 75% / 0.6);
+  --accent: hsl(280 40% 70%);
+  --accent-foreground: hsl(222 14% 14%);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --input: hsl(222 14% 20%);
+  --ring: hsl(152 60% 75% / 0.3);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: hsl(222 14% 16%);
+  --sidebar-foreground: hsl(152 60% 75%);
+  --sidebar-primary: hsl(152 60% 75%);
+  --sidebar-primary-foreground: hsl(222 14% 14%);
+  --sidebar-accent: hsl(222 14% 20%);
+  --sidebar-accent-foreground: hsl(152 60% 75%);
+  --sidebar-border: hsl(152 60% 75% / 0.15);
+  --sidebar-ring: hsl(152 60% 75% / 0.3);
+}
+
+.light {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(0 0% 10%);
+  --foreground-secondary: hsl(0 0% 40%);
+  --foreground-tertiary: hsl(0 0% 50%);
+  --accent: hsl(0 0% 10% / 0.05);
+  --border: hsl(0 0% 10% / 0.1);
+  --link: hsl(210 100% 45%);
+  --card: hsl(0 0% 98%);
+  --card-foreground: hsl(0 0% 10%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(0 0% 10%);
+  --primary: hsl(0 0% 10%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(0 0% 20%);
+  --secondary-foreground: hsl(0 0% 10%);
+  --muted: hsl(0 0% 95%);
+  --muted-foreground: hsl(0 0% 45%);
+  --accent: hsl(0 0% 95%);
+  --accent-foreground: hsl(0 0% 10%);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: hsl(0 0% 100%);
+  --input: hsl(0 0% 90%);
+  --ring: hsl(0 0% 60%);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: hsl(0 0% 98%);
+  --sidebar-foreground: hsl(0 0% 10%);
+  --sidebar-primary: hsl(0 0% 10%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(0 0% 95%);
+  --sidebar-accent-foreground: hsl(0 0% 10%);
+  --sidebar-border: hsl(0 0% 90%);
+  --sidebar-ring: hsl(0 0% 60%);
+}
+
+@theme inline {
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-link: var(--link);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  background-color: var(--background);
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Ensure proper stacking context for all sections */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+@layer components {
+  /* Geist Typography System with Weight-Based Hierarchy */
+
+  /* HERO TITLE - Bold (700) */
+  .hero-title {
+    font-family: "Geist", sans-serif;
+    font-size: clamp(2rem, 8vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
   }
+
+  /* HERO SUBTITLE - Light (300) */
+  .hero-subtitle {
+    font-family: "Geist", sans-serif;
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 300;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  /* SECTION TITLES - SemiBold (600) */
+  .section-title {
+    font-family: "Geist", sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* PROJECT TITLES - SemiBold (600) */
+  .project-title {
+    font-family: "Geist", sans-serif;
+    font-size: clamp(1.25rem, 2.8vw, 2rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  /* NAVIGATION - Medium (500) */
+  .nav-text {
+    font-family: "Geist", sans-serif;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  /* BODY TEXT - Regular (400) */
+  .body-text {
+    font-family: "Geist", sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.125rem);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.005em;
+  }
+
+  /* PROJECT DESCRIPTIONS - Regular (400) */
+  .project-description {
+    font-family: "Geist", sans-serif;
+    font-size: clamp(0.875rem, 1.6vw, 1rem);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.005em;
+  }
+
+  /* CONTACT TEXT - Medium (500) */
+  .contact-text {
+    font-family: "Geist", sans-serif;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  /* CONTACT LABELS - Light (300) */
+  .contact-label {
+    font-family: "Geist", sans-serif;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  /* META TEXT - Light (300) */
+  .meta-text {
+    font-family: "Geist", sans-serif;
+    font-size: clamp(0.75rem, 1.4vw, 0.875rem);
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  /* MOBILE MENU ITEMS - Medium (500) */
+  .mobile-nav-text {
+    font-family: "Geist", sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  /* BUTTON TEXT - Medium (500) */
+  .button-text {
+    font-family: "Geist", sans-serif;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+
+  /* Layout */
+  .container-xl {
+    width: 100%;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-xl {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-xl {
+      padding-left: 8rem;
+      padding-right: 8rem;
+    }
+  }
+
+  .section-spacing {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-spacing {
+      padding-top: 15rem;
+      padding-bottom: 15rem;
+    }
+  }
+
+  /* Custom cursor styles */
+  .cursor-dot {
+    position: fixed;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: white;
+    border-radius: 9999px;
+    pointer-events: none;
+    z-index: 50;
+    transition-property: transform;
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
+    mix-blend-mode: difference;
+  }
+
+  .cursor-outline {
+    position: fixed;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid white;
+    border-radius: 9999px;
+    pointer-events: none;
+    z-index: 50;
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+    mix-blend-mode: difference;
+  }
+
+  /* Contact item styles */
+  .contact-item {
+    margin-bottom: 2rem;
+  }
+
+  .contact-item .contact-value {
+    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+/* Enhanced smooth scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Section transitions */
+section {
+  position: relative;
+  will-change: opacity;
+}
+
+/* Ensure mobile menu is always on top */
+.fixed {
+  isolation: isolate;
 }
