@@ -17,14 +17,14 @@ export function Footer() {
       <div className="container-xl">
         <div className="flex flex-col md:flex-row justify-center items-center text-center">
           <p className="meta-text text-foreground-secondary flex items-center gap-2">
-            Built with curiosity and 💙 by{" "}
+            Built with curiosity 
             <a
               href="https://x.com/FellowTravell20"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground hover:underline"
             >
-              Bhabuk
+              {/* Bhabuk */}
             </a>
           </p>
         </div>

@@ -39,12 +39,13 @@ export function HeroSection() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.div variants={itemVariants} className="mb-16">
-            <h1 className="hero-title text-foreground/80 whitespace-normal opacity-[1] shadow-none">BHABUK BHATTARAI</h1>
+            <h1 className="hero-title text-foreground/95 whitespace-normal opacity-[1] shadow-none">BHABUK BHATTARAI</h1>
           </motion.div>
 
           <motion.div variants={itemVariants} className="max-w-2xl">
             <p className="hero-subtitle text-foreground-secondary text-secondary text-2xl">
-              CS Student exploring creative coding, literature and art.  
+              {/* CS Student exploring creative coding, literature and art.   */}
+              CS student  enclosed within my bubble :-:
             </p>
           </motion.div>
         </motion.div>
