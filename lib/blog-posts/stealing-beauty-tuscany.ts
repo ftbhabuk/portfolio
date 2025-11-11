@@ -6,7 +6,7 @@ export const stealingBeautyTuscany = {
   category: "film & feelings",
   readTime: 4,
   tags: ["cinema", "coming-of-age", "bertolucci", "90s-film", "personal"],
-  image: "/stealing-beauty-tuscany.jpg",
+  image: "/images/chasing-beauty.jpg",
   content: `> *"somewhere between the olive trees and poorly translated poetry,*  
 > *i found a girl looking for answers in all the wrong beautiful places"*
 
