@@ -1,81 +1,100 @@
 export const sixMonthsLinux = {
     id: "six-months-linux",
-    title: "Six Months with Arch Linux: Escaping Windows and Embracing the Workflow",
-    excerpt: "From frustrating RAM hogs to a blocked GitHub, Microsoft's policies pushed me to Arch. This is my journey into Hyprland, system stability, and a genuinely empowered workflow.",
+    title: "Six Months with Arch Linux: My Escape from Windows",
+    excerpt: "I finally did it. After years of dealing with Windows' nonsense, I jumped ship to Arch Linux. Here's what the last six months have been like—the good, the bad, and the accidentally formatted partitions.",
     date: "November 11, 2025",
     category: "tech & truth",
     readTime: 6,
-    tags: ["linux", "arch", "hyprland", "system-stability", "workflow", "performance", "dev-tools", "personal"],
-    image: "/images/linux-journey.jpg",
-    content: `For years, I operated within the confines of Windows, enduring its relentless background processes, unexpected resource consumption, and a general feeling of diminishing control. My 16GB of RAM would routinely sit at 50% usage while idle, despite every optimization I could muster. This simmering frustration finally boiled over when Microsoft unilaterally blocked my GitHub account without warning. That was the definitive signal: it was time to move to an operating system that offered transparency, performance, and true user agency.
+    tags: ["linux", "arch", "hyprland", "personal"],
+    image: "/images/linux.png",
+    content: `It's been six months since I made the switch, and honestly? I should've done this years ago.
 
-## The Migration: Arch and Hyprland
+I remember sitting there one evening, watching my Task Manager show 8GB of RAM being used while I literally had nothing open. Just Windows doing... Windows things. Background processes I never asked for, telemetry I couldn't fully disable, constant updates that reset my settings. It was exhausting.
 
-My pivot to Linux wasn't a tentative step but a full dive into **Arch Linux**, paired with the highly customizable **Hyprland** tiling window manager. The choice was deliberate: if I was going to transition, it would be to a system that demanded a deep understanding and offered unparalleled control. Hyprland, in particular, promised a keyboard-driven workflow and an aesthetic freedom far beyond anything Windows could offer.
+But the real breaking point? Microsoft blocked my GitHub account. No warning, no explanation that made sense. Just locked out. That was it for me. I was done.
 
-### Overcoming Initial Instability
+## Taking the Plunge (And Breaking Things)
 
-The first few weeks with Arch were a harsh education. My system battled random freezes, file system remounts to read-only mode, and aggressive thermal throttling. It turns out, a generic kernel wasn't sufficient for my 12th Gen Intel hardware. The key to stability lay in meticulous configuration and understanding the underlying system. Through tuning kernel parameters and implementing CPU performance caps, I finally achieved a rock-solid system.
+I didn't ease into Linux with Ubuntu or Mint like most people suggest. Nope, I went straight for **Arch Linux** with **Hyprland**. Looking back, it was probably reckless, but I'm glad I did it. If I was going to learn a new system, I wanted to *really* learn it.
 
-\`\`\`bash
-# Example: Setting CPU performance cap
-echo 75 | sudo tee /sys/devices/system/cpu/intel_pstate/max_perf_pct
-\`\`\`
+The first few weeks were... an experience. I'm talking random freezes, the file system deciding to go read-only mid-work, and thermal throttling that made my laptop sound like it was about to take off. My 12th Gen Intel CPU was not happy with the default setup.
 
-This initial struggle highlighted a core truth: Linux grants immense control, but with it comes the responsibility to truly configure your environment.
+Oh, and I also completely messed up my boot menu and accidentally formatted my Windows partition. Yeah. No going back after that one. It was all-in whether I liked it or not.
 
-## The Hyprland Workflow: Performance and Control
+![Hyprland Desktop Setup](/images/workflow.png)
+*My current Hyprland setup with Project HyDE configs*
 
-Hyprland, coupled with my HyDE project configurations, has transformed my desktop into an extremely efficient and visually appealing workspace. The focus is entirely on a keyboard-driven workflow, minimizing mouse interaction and maximizing speed. This approach has led to:
+## The Thermal Crisis (And How I Fixed It)
 
-*   **Tiling Automation:** Windows are automatically arranged, eliminating manual resizing.
-*   **Dynamic Workspaces:** Effortless navigation and management of virtual desktops.
-*   **Custom Keybinds:** Every action, from launching applications to managing windows, is mapped to a keyboard shortcut.
-*   **App Launcher Integration:** Utilizing efficient launchers for quick access to frequently used applications like Zen-browser, beta Helium-browser, VSCode, and Kitty terminal. This also contributes to **fast boot times**, as resources are managed precisely.
+The freezing issue was driving me insane. Random lockups, file system errors, the works. After way too many late nights reading forum posts and wiki pages, I figured out it was thermal management. My Intel 12th Gen needed some serious babysitting.
 
-## Beyond the Basics: Features and Persistent Gripes
+I ended up writing a whole script to sort it out: click [here](https://github.com/ftbhabuk/dotfiles/blob/main/fix_thermal.sh) to see the script.
 
-My experience with Arch has been about finding practical solutions and appreciating the granular control it offers. The sheer power of the Linux ecosystem is evident in areas like:
 
-*   **Effortless Package Management:** The \`pacman\` package manager, alongside the AUR, makes installing new software incredibly straightforward. No more hunting for installers or wrestling with dependencies.
 
-    \`\`\`bash
-    # Installing a package with pacman
-    sudo pacman -S firefox
-    \`\`\`
 
-*   **Easy VPN Connectivity:** Integrating VPN services has been surprisingly simple, allowing for secure browsing and development without convoluted third-party tools.
 
-*   **Fan Profile Management with \`asusctl\`:** For my ASUS laptop, \`asusctl\` provides essential control over fan profiles, integrated into my workflow for quick adjustments.
+This fixed the sudden heating spikes and those awful memory overflow freezes. My last system freeze? Over three months ago. The script is basically the reason my system is stable now.
 
-*   **Fast Boot and Resource Efficiency:** The minimal nature of Arch, combined with Hyprland, ensures a lightning-fast boot and remarkably low idle RAM usage. My system is ready almost instantly, and resources are reserved for *my* tasks, not background bloat.
+## My Setup Today
 
-### The Linux "Sharp Edges" (What I Still Miss)
+Fast forward to now, and I'm running **Project HyDE** configs with Hyprland. Everything just clicks. The workflow is exactly what I needed.
 
-While Arch has largely surpassed my expectations, it's not without its ongoing challenges and a few creature comforts I still long for:
+I'm using **Pipewire** for audio (not PulseAudio anymore—thank god), and it's been way more stable. Sound quality is solid, no random crackling or weird volume issues.
 
-*   **Zed Editor Login:** A minor but persistent annoyance – Zed Code Editor simply refuses to reliably store login sessions, requiring frequent re-authentication.
-*   **VLC and Video Playback:** Despite trying every codec pack and configuration imaginable, VLC remains stubbornly unable to play videos on my system. MPV has become the indispensable alternative.
-*   **PulseAudio Woes:** Even after significant tuning, PulseAudio occasionally messes with sound quality, requiring restarts or reconfigurations. I really tried loving you, Soundwire, but it couldn't fully compensate.
-*   **Unstable Bluetooth:** Connecting Bluetooth devices often feels like a gamble, with frequent disconnections and difficulties maintaining a stable link.
-*   **Missing Browser Gestures:** The smooth, intuitive finger swipe gestures for navigation (back/forward) in Chromium-based browsers that I was accustomed to on Windows are notably absent or clunky.
-*   **Dolby Atmos Audio:** The rich, spatial audio experience of Dolby Atmos is something I haven't been able to replicate on Linux.
+My app launcher is **Rofi** from the HyDE configs, and honestly, it's beautiful. Fast, customizable, and it just feels right. Hit a keybind, type what you want, boom—instant launch.
 
-## Six Months On: An Empowered User
+For code, I'm primarily on **Cursor** right now, but I've been testing **Zed** on the side. Zed is *fast*—like, stupid fast. The only annoying thing is it refuses to keep me logged in. Every single time I open it, I have to authenticate again. Haven't fully made the switch yet because of that, but I'm getting close.
 
-After six months, my Arch Linux setup is a testament to the power of customization and control. The initial pain of learning was an investment that yielded a fast, stable, and deeply personal computing experience.
+![Rofi App Launcher](/images/rofi.png)
+*The Rofi launcher from Project HyDE—clean and fast*
 
-*   **Last System Freeze:** Over three months ago, permanently resolved by careful tuning.
-*   **Idle RAM Usage:** Consistently around 2GB (a significant reduction from 8GB+ on Windows).
-*   **Regrets:** None. The deep understanding gained is invaluable.
-*   **Going Back to Windows:** Not an option.
+### Browsers: Zen and Helium
 
-The journey from a frustrated Windows user to an empowered Arch Linux enthusiast has been challenging but ultimately rewarding. My system no longer works against me; it works *for* me.
+For browsing, I'm all-in on **Zen Browser** for Firefox-based stuff and **Helium** for when I need Chromium. Zen is gorgeous—seriously, if you haven't tried it, do yourself a favor. It's Firefox but better looking and more customizable.
+
+Helium handles anything that absolutely needs Chromium compatibility. Between the two, I'm covered.
+
+### Music: Spotify Without the Ads
+
+Oh, and music—I use **Spotify with Spicetify** and an ad-blocker JS extension. Free Spotify, zero ads. It's glorious. Works perfectly on Linux too, which was a pleasant surprise.
+
+## The Things That Still Bug Me
+
+Look, I'm not going to pretend everything is perfect. There are definitely some rough edges:
+
+**Fan Control** - This one's frustrating. My ASUS ZenBook has proprietary fan control software that just... doesn't exist on Linux. The fans work, but they're fully automatic now. I can't manually set profiles anymore. Not a dealbreaker, but I do miss having that control.
+
+**Bluetooth** - Still a coin flip. Will my headphones connect? Maybe. Will they stay connected? Who knows! It's gotten better, but it's not perfect.
+
+**Browser Gestures** - I really miss the smooth swipe gestures for navigation in Chromium browsers from Windows. The touchpad gestures on Linux just aren't as polished.
+
+**The ScreenPad** - My ZenBook 14 had that little touchpad screen thing. I completely forgot about it until writing this. It doesn't work on Linux at all. Honestly though? I never really used it anyway.
+
+**Zed Login Issues** - As mentioned, having to log in every time is annoying. Small thing, but death by a thousand cuts, you know?
+
+## Six Months Later: Zero Regrets
+
+Here I am, half a year in, and I have zero regrets. My RAM usage sits around 2GB idle. My boot time is measured in seconds. My system is stable. My workflow is clean.
+
+I'm not going back to Windows. Not a chance.
+
+Sure, there are trade-offs. Some things don't work as smoothly. I lost my Windows partition in a moment of user error. But here's the thing: when something breaks on Linux, I can actually *fix* it. I understand what's happening under the hood. On Windows, I was just a passenger in my own computer.
+
+![Terminal Neofetch](/images/neofetch.png)
+*Six months in and still loving it*
+
+Linux gave me control back. My system works *for* me now, not against me. The learning curve was steep, but so is the payoff.
+
+If you're on the fence about trying Linux, especially if you're frustrated with Windows, just do it. Maybe start with Ubuntu instead of jumping straight to Arch like I did. But give it a real shot.
+
+The freedom is worth it.
 
 ---
 
-For those interested in exploring this path:
-*   [Arch Linux Wiki](https://wiki.archlinux.org/)
-*   [Hyprland GitHub Repo](https://github.com/hyprwm/Hyprland)
-*   [Project HyDE GitHub Repo (example configs)](https://github.com/username/project-hyde-repo) *[Replace with your actual repo link]*`,
+*Useful resources:*
+- *Arch Wiki (saved my life multiple times)*
+- *Project HyDE GitHub (amazing Hyprland configs)*
+- *Hyprland docs (essential reading)*
+- *r/unixporn (for inspiration)*`
 };

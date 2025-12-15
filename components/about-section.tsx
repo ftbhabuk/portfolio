@@ -60,37 +60,30 @@ export function AboutSection() {
           className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24"
         >
           <motion.div variants={itemVariants} className="flex flex-col space-y-16">
-            <div>
-              <p className="body-text text-foreground-secondary">
-                I'm a Computer Science student from Nepal with a passion for creative coding and literary exploration. I
-                believe technology and storytelling can intersect beautifully.
-              </p>
-            </div>
+  <div>
+    <p className="body-text text-foreground-secondary">
+      I'm a Computer Science student from Nepal who spends way too much time playing with AI models and turning code into something creative.
+    </p>
+  </div>
+  <div>
+    <p className="body-text text-foreground-secondary">
+      I love building weird interactive things — generative art, literature tools, strange web experiments — basically anything where tech meets imagination.
+    </p>
+  </div>
+</motion.div>
 
-            <div>
-              <p className="body-text text-foreground-secondary">
-                My interests span across full-stack development, AI-driven creative projects, and building tools that
-                bridge the gap between code and art. I'm particularly drawn to projects that combine technical
-                innovation with narrative depth.
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="flex flex-col space-y-6 justify-start">
-            <div>
-              <p className="body-text text-foreground-secondary">
-                Currently exploring integration of traditional systems  with LLMs, creating interactive platforms, and
-                experimenting with generative art through code.
-              </p>
-            </div>
-
-            <div>
-              <p className="body-text text-foreground-secondary">
-                When I'm not coding, you'll find me reading novels, writing poetry, or experimenting with new creative
-                projects. Always open to collaborating on interesting ideas.
-              </p>
-            </div>
-          </motion.div>
+<motion.div variants={itemVariants} className="flex flex-col space-y-6 justify-start">
+  <div>
+    <p className="body-text text-foreground-secondary">
+      Outside coding, I'm usually lost in novels, writing poems or short stories, messing around with music, or sketching random ideas.
+    </p>
+  </div>
+  <div>
+    <p className="body-text text-foreground-secondary">
+      Always down to chat about wild project ideas, creativity, literature, or just share playlists. Hit me up if something sounds fun.
+    </p>
+  </div>
+</motion.div>
         </motion.div>
       </div>
     </section>

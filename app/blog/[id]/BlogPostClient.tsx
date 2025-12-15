@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Calendar, Clock, ArrowRight } from "lucide-react"
+import { ArrowLeft, Calendar, ArrowRight } from "lucide-react"
 import type { BlogPost } from "@/lib/blog-posts"
 import { MarkdownContent } from "@/components/markdown-content"
 import { getAllBlogPosts } from "@/lib/blog-posts"
@@ -15,169 +15,148 @@ interface BlogPostClientProps {
 
 export default function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
   const allPosts = getAllBlogPosts()
-  const recommendedPosts = relatedPosts.length > 0 ? relatedPosts : allPosts.filter((p) => p.id !== post.id).slice(0, 3)
+  const recommendedPosts = relatedPosts.length > 0 
+    ? relatedPosts 
+    : allPosts.filter((p) => p.id !== post.id).slice(0, 3)
 
   return (
     <main className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="border-b border-border bg-card/30 backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto px-4 md:px-8 py-8">
-          <Link
-            href="/#blog"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8 group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Blog
-          </Link>
+      {/* Back link + metadata */}
+      <div className="max-w-3xl mx-auto px-6 md:px-8 pt-8 md:pt-12 pb-6">
+        <Link
+          href="/#blog"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
+        >
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+          Back to blog
+        </Link>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <div className="flex items-center gap-3 mb-6">
-              <Badge className="text-xs font-medium">{post.category}</Badge>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5" />
-                  {post.date}
-                </span>
-                <span>•</span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5" />
-                  {post.readTime} min read
-                </span>
-              </div>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance leading-tight">{post.title}</h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 text-pretty leading-relaxed">{post.excerpt}</p>
-            <div className="flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-sm px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          </motion.div>
+        <div className="mt-8 flex items-center gap-3 text-sm text-muted-foreground">
+          <Badge variant="secondary" className="font-normal">{post.category}</Badge>
+          <span className="flex items-center gap-1.5">
+            <Calendar className="w-3.5 h-3.5" />
+            {post.date}
+          </span>
         </div>
       </div>
 
-      {/* Featured Image */}
-      <div className="max-w-5xl mx-auto px-4 md:px-8 py-12">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="relative overflow-hidden rounded-2xl border border-border shadow-2xl"
+      {/* Title + excerpt - More subtle and elegant */}
+      <header className="max-w-3xl mx-auto px-6 md:px-8 pb-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl md:text-4xl font-bold leading-snug text-balance mb-5"
         >
-          <img
-            src={post.image || "/placeholder.svg"}
-            alt={post.title}
-            className="w-full h-[400px] md:h-[500px] object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
-        </motion.div>
-      </div>
+          {post.title}
+        </motion.h1>
 
-      {/* Content */}
-      <article className="max-w-3xl mx-auto px-4 md:px-8 py-12">
+        {post.excerpt && (
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-base md:text-lg text-muted-foreground leading-relaxed"
+          >
+            {post.excerpt}
+          </motion.p>
+        )}
+      </header>
+
+      {/* Featured image - More refined */}
+      {post.image && (
+        <div className="max-w-4xl mx-auto px-6 md:px-8 mb-12">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative overflow-hidden rounded-xl border border-border/50"
+          >
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full h-[400px] md:h-[550px] object-cover"
+            />
+          </motion.div>
+        </div>
+      )}
+
+      {/* Main content - Better spacing and typography */}
+      <article className="max-w-2xl mx-auto px-6 md:px-8 pb-16">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="prose-custom"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="prose prose-neutral dark:prose-invert 
+                     prose-headings:font-semibold 
+                     prose-headings:tracking-tight
+                     prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+                     prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+                     prose-p:text-base prose-p:leading-relaxed prose-p:mb-5
+                     prose-li:text-base prose-li:leading-relaxed
+                     prose-strong:font-semibold prose-strong:text-foreground
+                     prose-code:text-sm prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+                     prose-pre:bg-muted prose-pre:border prose-pre:border-border
+                     prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                     max-w-none"
         >
           <MarkdownContent content={post.content} />
         </motion.div>
       </article>
 
-      <section className="border-t border-border">
-        <div className="max-w-4xl mx-auto px-4 md:px-8 py-16">
-          <motion.div
+      {/* Related posts - Cleaner design */}
+      <section className="border-t border-border/40">
+        <div className="max-w-3xl mx-auto px-6 md:px-8 py-12">
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="text-2xl font-semibold mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">
-              {relatedPosts.length > 0 ? "Related Posts" : "More to Explore"}
-            </h2>
-            <p className="text-muted-foreground">
-              {relatedPosts.length > 0
-                ? "Continue reading posts related to this topic"
-                : "Discover more thoughts and explorations"}
-            </p>
-          </motion.div>
+            {relatedPosts.length > 0 ? "Related Posts" : "More to Explore"}
+          </motion.h2>
 
-          <motion.div
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.1,
-                  delayChildren: 0.2,
-                },
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
+          <div className="space-y-6">
             {recommendedPosts.map((recommendedPost, index) => (
               <motion.div
                 key={recommendedPost.id}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { duration: 0.5 },
-                  },
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
                 <Link
                   href={`/blog/${recommendedPost.id}`}
-                  className="group block py-6 border-t border-border/50 transition-all duration-300 hover:border-primary/30"
+                  className="group block py-4 border-b border-border/30 last:border-0"
                 >
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start justify-between gap-6">
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 mb-2">
+                      <h3 className="text-lg font-medium group-hover:text-primary transition-colors mb-2">
                         {recommendedPost.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2 mb-3">{recommendedPost.excerpt}</p>
-                      <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                        <span>{recommendedPost.date}</span>
-                        <span>•</span>
-                        <span>{recommendedPost.readTime} min read</span>
-                        <span>•</span>
-                        <Badge variant="outline" className="text-xs">
-                          {recommendedPost.category}
-                        </Badge>
+                      <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
+                        {recommendedPost.excerpt}
+                      </p>
+                      <div className="text-xs text-muted-foreground">
+                        {recommendedPost.date} · {recommendedPost.category}
                       </div>
                     </div>
-                    <ArrowRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0 mt-1" />
+                    <ArrowRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all mt-1 flex-shrink-0" />
                   </div>
                 </Link>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="mt-12 pt-8 border-t border-border/50"
-          >
+          <div className="mt-10 pt-6 border-t border-border/30">
             <Link
               href="/#blog"
-              className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300 font-medium"
+              className="inline-flex items-center gap-2 text-sm text-primary font-medium hover:gap-3 transition-all"
             >
-              View All Posts
-              <ArrowRight className="w-4 h-4" />
+              View all posts
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
