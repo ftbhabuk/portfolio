@@ -21,7 +21,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   const [currentSection, setCurrentSection] = useState("hero")
 
   useEffect(() => {
-    const sections = ["hero", "work", "about", "across-the-web"]
+    const sections = ["hero", "work", "blog", "about", "across-the-web"]
 
     // Create IntersectionObserver
     const observer = new IntersectionObserver(

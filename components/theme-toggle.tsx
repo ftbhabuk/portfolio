@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
+import { Sun, Moon } from "lucide-react"
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("dark")
@@ -25,20 +26,33 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="relative w-14 h-7 rounded-full bg-foreground/10 hover:bg-foreground/15 transition-colors duration-300 flex items-center px-1"
+      className="relative w-9 h-9 rounded-full bg-foreground/5 hover:bg-foreground/10 transition-all duration-300 flex items-center justify-center"
       aria-label="Toggle theme"
     >
       <motion.div
-        className="w-5 h-5 rounded-full bg-foreground"
+        initial={false}
         animate={{
-          x: theme === "dark" ? 0 : 28,
+          scale: theme === "dark" ? 1 : 0,
+          rotate: theme === "dark" ? 0 : 180,
+          opacity: theme === "dark" ? 1 : 0,
         }}
-        transition={{
-          type: "spring",
-          stiffness: 500,
-          damping: 30,
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="absolute inset-0 flex items-center justify-center"
+      >
+        <Moon className="h-4 w-4 text-foreground" />
+      </motion.div>
+      <motion.div
+        initial={false}
+        animate={{
+          scale: theme === "light" ? 1 : 0,
+          rotate: theme === "light" ? 0 : -180,
+          opacity: theme === "light" ? 1 : 0,
         }}
-      />
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="absolute inset-0 flex items-center justify-center"
+      >
+        <Sun className="h-4 w-4 text-foreground" />
+      </motion.div>
       <span className="sr-only">{theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}</span>
     </button>
   )

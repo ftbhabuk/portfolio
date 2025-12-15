@@ -16,7 +16,7 @@ export function Navbar() {
     { name: "Work", href: "#work", id: "work" },
     { name: "Blog", href: "#blog", id: "blog" },
     { name: "About", href: "#about", id: "about" },
-    { name: "Across the Web", href: "#across-the-web", id: "across-the-web" },
+    { name: "Web", href: "#across-the-web", id: "across-the-web" },
   ]
 
   useEffect(() => {
