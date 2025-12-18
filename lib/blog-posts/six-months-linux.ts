@@ -93,8 +93,8 @@ The freedom is worth it.
 ---
 
 *Useful resources:*
-- *Arch Wiki (saved my life multiple times)*
-- *Project HyDE GitHub (amazing Hyprland configs)*
-- *Hyprland docs (essential reading)*
-- *r/unixporn (for inspiration)*`
+- [Arch Wiki](https://wiki.archlinux.org/) (saved my life multiple times)
+- [Project HyDE GitHub](https://github.com/HyDE-Project) (amazing Hyprland configs)
+- [Hyprland docs](https://wiki.hypr.land/) (essential reading)
+- [r/unixporn](https://www.reddit.com/r/unixporn/) (for inspiration)`
 };
