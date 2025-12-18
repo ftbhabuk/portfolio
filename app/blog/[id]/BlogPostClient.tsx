@@ -75,7 +75,7 @@ export default function BlogPostClient({ post, relatedPosts }: BlogPostClientPro
             <img
               src={post.image}
               alt={post.title}
-              className="w-full h-[400px] md:h-[550px] object-cover"
+              className="w-full h-[400px] md:h-[480px] object-cover"
             />
           </motion.div>
         </div>
@@ -98,6 +98,8 @@ export default function BlogPostClient({ post, relatedPosts }: BlogPostClientPro
                      prose-code:text-sm prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
                      prose-pre:bg-muted prose-pre:border prose-pre:border-border
                      prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                     prose-img:rounded-xl prose-img:border prose-img:border-border/50 prose-img:my-8
+                     prose-img:w-full prose-img:h-auto
                      max-w-none"
         >
           <MarkdownContent content={post.content} />
