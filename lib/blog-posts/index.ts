@@ -1,9 +1,7 @@
 import { poetryWebPlatform } from "./poetry-web-platform"
-// import { aiLiteratureGeneration } from "./ai-literature-generation"
-// import { waveGeometricPatterns } from "./wave-geometric-patterns"
-import {stealingBeautyTuscany} from "./stealing-beauty-tuscany"
+
 import {sixMonthsLinux} from "./six-months-linux"
-import { dcopy } from "./2ndcopy"
+
 
 
 export interface BlogPost {
@@ -18,7 +16,7 @@ export interface BlogPost {
   content: string
 }
 
-export const allBlogPosts: BlogPost[] = [dcopy,sixMonthsLinux, stealingBeautyTuscany, poetryWebPlatform]
+export const allBlogPosts: BlogPost[] = [sixMonthsLinux, poetryWebPlatform]
 
 export function getAllBlogPosts(): BlogPost[] {
   return allBlogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

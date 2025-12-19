@@ -59,6 +59,7 @@ My app launcher is **Rofi** from the HyDE configs, and honestly, it's beautiful.
 ![Rofi App Launcher](/images/rofi.png)
 *The Rofi launcher from Project HyDE—clean and fast*
 
+---
 ### Coding & AI Tools
 
 For code, I'm primarily on **Cursor**. It's become my main editor and I'm not looking back. For AI coding help, I use **Grok**—it's free and honestly matches my personality way better than the alternatives. I'll use the free version of **Claude** sometimes too, but I've literally never touched ChatGPT. Just not my vibe.
@@ -75,6 +76,9 @@ But here's the thing: Zen doesn't support WebRTC properly for Facebook Messenger
 
 For web development work specifically, I'm trying out **Helium Browser**. Still testing it, but so far it's solid for dev stuff.
 
+![Zen Browser](/images/zen.png)
+*Zen Browser workflow with multi profile*
+
 ### Browser Extensions
 
 Across all of them, I'm running the same setup:
@@ -89,6 +93,9 @@ Across all of them, I'm running the same setup:
 Oh, and music—I use **Spotify with Spicetify** and an ad-blocker JS extension. Free Spotify, zero ads. It's glorious. Works perfectly on Linux too, which was a pleasant surprise. And I'ts super consumizable with the Spicetify theme engine.
 ![spotify  View](/images/spotify.png)
 
+
+---
+
 ### Notes & Knowledge Management
 
 I'm using **Obsidian** for all my notes. Imported everything from Google Keep and never looked back. The graph view alone is worth it—seeing how all my notes connect is genuinely useful, not just eye candy.
@@ -96,9 +103,13 @@ I'm using **Obsidian** for all my notes. Imported everything from Google Keep an
 ![Obsidian Graph View](/images/obsidian.png)
 *My Obsidian knowledge graph after   google notes import*
 
+---
+
 ### Web Apps for Everything Else
 
 For docs, PDFs, presentations, and most other productivity stuff, I just use web apps. Google Docs, whatever PDF viewer works in the browser, presentations online. No need to install bloated desktop software when the web version does the job.
+
+---
 
 ## The Things That Still Bug Me
 
@@ -115,6 +126,8 @@ Look, I'm not going to pretend everything is perfect. There are definitely some 
 **Bluetooth** - Still a coin flip. Will my headphones connect? Maybe. Will they stay connected? Who knows! It's gotten better, but it's not perfect.
 
 **The ScreenPad** - My ZenBook 14 had that little touchpad screen thing. I completely forgot about it until writing this. It doesn't work on Linux at all. Honestly though? I never really used it anyway.
+
+---
 
 ## Six Months Later: Zero Regrets
 
