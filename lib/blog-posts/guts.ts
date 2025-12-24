@@ -1,155 +1,142 @@
 export const berserkBonfire = {
     id: "berserk-bonfire",
-    title: "The Bonfire I Never Lit: What Berserk Actually Taught Me",
-    excerpt: "Everyone warns you about the violence and the Eclipse. But Berserk hit me somewhere deeper—asking how much of my life I've spent living for someone else's dream.",
+    title: "The Bonfire I Never Lit: The Cost of Someone Else's Dream",
+    excerpt: "Berserk is famous for its brutality and the Eclipse. But what wrecked me wasn't the gore—it was realizing how long I'd spent warming myself by fires that weren't mine.",
     date: "December 24, 2025",
     category: "anime & life",
-    readTime: 12,
-    tags: ["berserk", "anime", "personal", "philosophy", "guts", "griffith"],
-    image: "/images/berserk-bonfire.png",
-    content: `I finished Berserk a few weeks ago—the '97 anime and the newer adaptations. I'm still processing it. Guts shows up in my head almost daily, which feels strange to admit.
+    readTime: 14,
+    tags: ["berserk", "anime", "manga", "personal", "philosophy", "guts", "griffith"],
+    image: "/images/berserk-main.jpg",
+    content: `I binged Berserk during a rough patch—bad job, feeling stuck, the usual. Finished the '97 anime, dipped into the movies and the manga. Expected dark fantasy violence. Got that, sure. But what actually hit was something quieter and way more personal.
   
-  Everyone talks about Berserk as this ultra-violent dark fantasy epic. It is: demons, medieval warfare, the Eclipse that people mention in hushed tones. But that's not what stayed with me.
+  To set the mood while you read: play [Guts' Theme](https://www.youtube.com/watch?v=auLopgsgJ_s). It captures the relentless struggle perfectly.
   
-  What stayed is a question I wasn't ready for: **How much of my life have I spent living for someone else's dream?**
+  <div class="video-wrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/auLopgsgJ_s" title="Guts' Theme" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
   
-  ---
-  ## The Celebration That Broke Everything
-  
-  Early in the series, after a big victory, the Band of the Hawk celebrates. Everyone's drinking, laughing. Griffith—the charismatic leader everyone would die for—talks to Princess Charlotte about friendship.
-  
-  Guts stands in the shadows, listening. Griffith says:
-  
-  > "It is my perception that a true friend never relies on another's dream. A person with the potential to be my true friend must be able to find his own reason for life without my help."
-  
-  You see it hit Guts. The exact moment he realizes he's been a tool. An incredibly effective, loyal tool—but still just a tool.
-  
-  Guts had fought for years to push Griffith closer to his kingdom. Became the strongest warrior in the Hawks, won impossible battles, killed countless men. He was fine with it because he'd never known anything else. Born from a corpse, raised by an abusive mercenary, childhood spent swinging a sword too big for his body just to survive.
-  
-  When you have no reference for a "normal" life, being useful to someone else's ambition feels like purpose. Like family. Like enough.
-  
-  Until you learn that despite all the blood and loyalty, you're not even a friend. You're just there, warming yourself by someone else's fire.
+  Everyone warns you about the Eclipse. Rightly so. But for me, the real gut punch came earlier.
   
   ---
-  ## The Bonfire of Dreams
+  ## The Moment Everything Shifted
   
-  Later, after another battle, Guts and Casca talk on a mountaintop. Casca, Griffith's devoted second-in-command, tries to understand why Guts fights.
+  Picture this: the Band of the Hawk fresh off a victory. Bonfire roaring, laughter, drinks flowing. Griffith, the untouchable leader, chats with Princess Charlotte about true friendship.
   
-  Guts opens up about the men he leads—their small dreams. One wants a clothing shop after the war. Another plans to propose once promoted. Fragile little flames.
+  Guts overhears from the shadows. Griffith drops the line that changes everything—that a real friend doesn't depend on someone else's dream. They have to find their own reason to live.
   
-  > "Maybe they've all brought their own individual little flames together here. You could scatter them just by blowing, so all those little flames throw themselves into the biggest bonfire. The blazing inferno named Griffith."
+  In that instant, Guts realizes he's been nothing but a tool. The strongest blade in Griffith's arsenal, sure—but still just a means to an end.
   
-  Then the line that destroyed me:
+  ![The Band of the Hawk during the bonfire of dreams scene](/images/band-of-the-hawk.png)
+  *The Band of the Hawk in their golden days—before it all burned.*
+  *(Source: Berserk anime bonfire scene)*
   
-  > "People bring the small flames of their wishes together... since they don't want to extinguish the small flame... they'll bring that small flame to a bigger fire. A big flame named Griffith. But you know... I didn't bring a flame with me. I think I just stopped by to warm myself by the bonfire."
+  He'd spent his entire life fighting for Griffith's kingdom. Born hanging from his mother's corpse, raised by mercenaries who abused him, swinging a sword bigger than himself since childhood. Survival was all he knew. Being useful to Griffith's ambition felt like belonging. Like purpose.
   
-  I paused the anime. That was it. The whole thing.
+  Until he learns he's not even seen as a friend. Just someone warming himself by the fire.
   
-  How many years have I spent warming myself by someone else's fire? Contributing nothing of my own, just standing close enough not to freeze, telling myself it was enough.
+  ---
+  ## The Bonfire Metaphor That Broke Me
+  
+  Later, on a quiet hilltop, Guts opens up to Casca about the soldiers' small dreams—a shop after the war, a marriage proposal. Fragile little flames.
+  
+  He compares them to people huddling around Griffith's massive bonfire, too scared to let their own sparks die out in the wind.
+  
+  Then he admits: "I didn't bring any flame of my own. I just stopped by to warm myself by that bonfire."
+  
+  I had to pause the episode. That line wrecked me.
+  
+  How many years had I done the exact same? Feeding someone else's vision—bosses, projects, relationships—while my own ideas stayed cold and unlit. Telling myself proximity to their fire was enough.
   
   It's not.
   
   ---
-  ## Casca's Blindness
+  ## The Irony of the Dragonslayer
   
-  Casca is utterly devoted to Griffith. She's convinced her loyalty and love make her special. That her sacrifices mean something.
+  Guts' sword says everything about him.
   
-  But she's just another flame feeding the bonfire.
+  It's called the Dragonslayer: a monstrous slab of raw iron, over six feet long, weighing hundreds of pounds. Too big and crude to even be called a proper sword—just a "heap of raw iron."
   
-  When Guts decides to leave, she's devastated—not just because she'll miss him, but because someone choosing themselves over Griffith shatters her worldview. If Guts can walk away, what does that say about her choice to stay?
+  The blacksmith forged it to kill a dragon. But in this world, dragons don't exist... until apostles and God Hand show up.
   
-  She's innocent. Manipulated. Trapped in Griffith's gravity, unable to imagine life outside it.
+  The irony? A weapon made for mythical beasts becomes Guts' tool against very real demons. It lets him carve through nightmares, but its sheer weight isolates him from any normal life. He can't sheath it properly, can't live quietly. It's a burden he chose—one that represents his rage, his independence, his refusal to be anyone else's tool again.
   
-  ---
-  ## Why I Hate Griffith (And Why That Matters)
+  ![Guts with the Dragonslayer planted in the ground](/images/sword.jpg)
+  *The Dragonslayer—symbol of Guts' heavy, solitary path.*
   
-  I hate Griffith.
+  Post-Eclipse, he swings this beast one-handed with a prosthetic arm. It's not just strength; it's defiance.
   
-  I didn't always. Early on, I admired him—his ambition, charisma, the way he inspired people while staying focused on something greater.
+  ![Guts swinging the Dragonslayer in battle](http://swordslice.com/cdn/shop/articles/berserk-guts-4cf4p38w8p8mftyf_38e32d04-4222-41c2-9126-2b11fccab198.jpg?v=1756403184)
+  *Raw power in motion.*
   
-  I saw parts of myself in that drive to be exceptional, to build something meaningful, to rise.
-  
-  That's what makes him dangerous. Brilliant. Unforgivable.
-  
-  A YouTube comment put it perfectly:
-  
-  > "What makes Griffith such a beautiful character is that he is such a realistic and profound depiction of pure evil... Griffith is one of the worst and at the same time so understandable that many people say they might do the same thing if they were in his position. The harsh reality is: you have the potential within you to be as bad as Griffith."
-  
-  I hate him because I understand him. Because there's a version of me that could justify his choices—the version so obsessed with the goal that people become stepping stones.
-  
-  He sold his body to save soldiers. Cried over a dead child in his ranks. Showed real humanity.
-  
-  Then sacrificed every single one of them to become a god.
-  
-  > "I will not... betray my dream. That is all."
+  The sword is his own flame now—heavy, hard to carry, but undeniably his.
   
   ---
   ## The Duel in the Snow
   
-  Guts challenges Griffith to a duel to earn his freedom.
+  Guts challenges Griffith to earn his freedom. No rage, just resolve.
   
-  The fight in the snow is heartbreakingly beautiful. "Forces" plays. Guts swings with absolute clarity—no rage, just resolve.
+  Watch it here—no words do it justice:
   
-  Griffith loses. His sword shatters. He falls to his knees.
+  <div class="video-wrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/bLAWxHXOhAc" title="The Snow Duel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
   
-  Guts walks past and thinks:
+  Griffith loses. Shatters his sword. Falls to his knees.
   
-  > "You're going to be all right. You just stumbled over a stone in the road. It means nothing. Your goal lies far beyond this. Doesn't it? I'm sure you'll overcome this. You'll walk again... soon."
+  Guts walks away, thinking Griffith will recover. That this is just a stumble on the road to his dream.
   
-  That's love. Believing someone will survive your absence. Respecting them enough to leave anyway.
+  He was wrong.
   
-  Guts was wrong.
+  Griffith couldn't handle losing control. His identity was built on being the center—everyone orbiting his ambition. When his best "piece" chose himself, the whole structure collapsed.
   
-  Griffith collapsed. Slept with Charlotte out of desperation. Got caught, tortured for a year—reduced to something barely human.
-  
-  He couldn't exist without followers orbiting his dream.
-  
-  ---
-  ## What Happens When You Walk Away
-  
-  > "If one can't live their life the way they want, they might as well die."
-  
-  Guts left to find his own reason for existing. Not out of hate—just the quiet realization that being Griffith's sword wasn't enough.
-  
-  > "I don't want what another man can give me. If he grants me anything, then it's his to give and not my own."
-  
-  The world punished him for it. Griffith fell apart. Got tortured. When Guts and Casca rescued him, Griffith used the Behelit. Sacrificed the entire Band of the Hawk to become Femto.
-  
-  When you make someone else's dream your entire existence, you risk being consumed by it.
+  Desperation, imprisonment, torture. Then the Eclipse.
   
   ---
-  ## After Everything Burns
+  ## When You Finally Walk Away
   
-  Post-Eclipse Guts is broken. Traumatized. Lost everyone. His arm. His eye. Driven by revenge at first.
+  Guts left not out of hate, but realization: being Griffith's sword wasn't enough. He needed something that couldn't be taken away.
   
-  Slowly, painfully, he finds new reasons. Protecting Casca. New companions he tries to push away. Realizing his fight might be about preventing the same pain for others.
+  The world punished him brutally for it. Griffith sacrificed the entire Band of the Hawk to become Femto.
   
-  > "Humans are weak... but we want to live. Even if we're wounded... or tortured... we feel the pain."
+  ![The Eclipse scene](https://creator.nightcafe.studio/jobs/x0QCyaIwl9hufD2WUO6r/x0QCyaIwl9hufD2WUO6r.jpg)
+  *The moment everything burns. (Careful—it's heavy.)*
   
-  No happy ending. The manga remains unfinished (RIP Miura). Guts is still struggling, still wounded, still moving forward.
+  When you build your existence around someone else's dream, you're fuel waiting to be consumed.
   
   ---
-  ## What I'm Left With
+  ## Real-Life Parallels
   
-  > "Even if we painstakingly piece together something lost, it doesn't mean things will ever go back to how they were."
+  Griffith isn't a cartoon villain. He's scarily relatable—charismatic leader with a grand vision, inspiring devotion while viewing people as stepping stones.
   
-  You can't undo the years spent as someone else's weapon. You can't recover time given away.
+  We've all seen it: toxic bosses, cult-like companies, relationships where one person's ambition devours everyone else's.
   
-  All you can do is start swinging your sword for your own reasons.
+  The irony? Many of us start admiring Griffith. I did. That drive to rise above your origins, to build something great. Until you see the cost.
   
-  Walking away isn't selfish. Refusing to fuel someone else's fire isn't betrayal. It's necessary.
+  ---
+  ## After the Fire
   
-  Staying—just to be a means to their end—is slow erasure.
+  Post-Eclipse Guts is shattered. Revenge fuels him at first. But slowly, he carves out new reasons—protecting Casca, reluctant companions, fighting so others don't suffer the same.
   
-  Berserk shows the struggle doesn't end. Life gets harder when you live for yourself. You lose the comfort of direction, the warmth of the bonfire. You're alone in the cold, carrying your own small flame that might go out.
+  No happy ending. The struggle never stops. Demons hunt him every night. He's still bleeding, still swinging that impossible sword.
   
-  But at least it's yours. At least when you bleed, it's for something you chose.
+  But it's his struggle now.
   
-  I'm not warming myself by someone else's bonfire anymore.
+  ---
+  ## Carrying My Own Flame
   
-  I'm carrying my own flame now. Small. Flickering. Barely staying lit some nights.
+  Berserk doesn't offer easy answers. You can't undo time spent as someone else's weapon. Can't relight years lost to someone else's bonfire.
   
-  But it's mine.
+  All you can do is pick up your own flame—small, flickering, vulnerable to the wind—and protect it anyway.
   
-  And that has to be enough.`
+  Walking away feels like betrayal to those who benefited from your fuel. They might collapse. Lash out. Burn everything down.
+  
+  But staying? That's just slow erasure.
+  
+  I'm done warming myself by other people's fires.
+  
+  My flame is tiny. It gutters some nights. But it's mine.
+  
+  And for the first time, that's enough.
+  
+  What about you? What's your bonfire been? Feel free to share in the comments.`
   };
