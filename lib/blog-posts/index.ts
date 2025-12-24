@@ -2,6 +2,7 @@ import { poetryWebPlatform } from "./poetry-web-platform"
 
 import {sixMonthsLinux} from "./six-months-linux"
 import {melodySkyPost} from "./transcript"
+import {berserkBonfire} from "./guts"
 
 
 export interface BlogPost {
@@ -16,7 +17,7 @@ export interface BlogPost {
   content: string
 }
 
-export const allBlogPosts: BlogPost[] = [sixMonthsLinux, poetryWebPlatform, melodySkyPost]
+export const allBlogPosts: BlogPost[] = [berserkBonfire,sixMonthsLinux, poetryWebPlatform, melodySkyPost]
 
 export function getAllBlogPosts(): BlogPost[] {
   return allBlogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
