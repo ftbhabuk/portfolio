@@ -44,7 +44,7 @@ export default function BlogPostClient({ post, relatedPosts }: BlogPostClientPro
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-balance mb-6"
+          className="text-2xl md:text-3xl lg:text-3xl font-semibold leading-tight text-balance mb-6"
         >
           {post.title}
         </motion.h1>
@@ -55,7 +55,7 @@ export default function BlogPostClient({ post, relatedPosts }: BlogPostClientPro
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6 max-w-3xl"
+            className="text-lg md:text-x text-muted-foreground leading-relaxed mb-6 max-w-4xl"
           >
             {post.excerpt}
           </motion.p>
@@ -87,7 +87,7 @@ export default function BlogPostClient({ post, relatedPosts }: BlogPostClientPro
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative overflow-hidden rounded-2xl border border-border/40 shadow-lg"
+            className="relative overflow-hidden -2xl border border-border/40 shadow-lg"
           >
             <img
               src={post.image}

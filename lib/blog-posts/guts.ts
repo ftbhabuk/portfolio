@@ -119,6 +119,5 @@ export const berserkBonfire = {
   My flame is tiny. It gutters some nights. But it's mine.
   
   And for the first time, that's enough.
-  
-  What about you? What's your bonfire been? Feel free to share in the comments.`
+`
   };
