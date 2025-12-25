@@ -41,12 +41,6 @@ export default function Home() {
           </SectionTransition>
         </section>
 
-        <section id="about">
-          <SectionTransition id="about">
-            <AboutSection />
-          </SectionTransition>
-        </section>
-
         <section id="across-the-web">
           <SectionTransition id="across-the-web">
             <ContactSection />
