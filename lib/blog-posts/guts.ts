@@ -11,9 +11,7 @@ export const berserkBonfire = {
   
   To set the mood while you read: play [Guts' Theme](https://www.youtube.com/watch?v=auLopgsgJ_s). It captures the relentless struggle perfectly.
   
-  <div class="video-wrapper">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/auLopgsgJ_s" title="Guts' Theme" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
+
   
   Everyone warns you about the Eclipse. Rightly so. But for me, the real gut punch came earlier.
   
@@ -63,33 +61,17 @@ export const berserkBonfire = {
   ![Guts with the Dragonslayer planted in the ground](/images/sword.jpg)
   *The Dragonslayer—symbol of Guts' heavy, solitary path.*
   
-  Post-Eclipse, he swings this beast one-handed with a prosthetic arm. It's not just strength; it's defiance.
-  
-  ![Guts swinging the Dragonslayer in battle](http://swordslice.com/cdn/shop/articles/berserk-guts-4cf4p38w8p8mftyf_38e32d04-4222-41c2-9126-2b11fccab198.jpg?v=1756403184)
-  *Raw power in motion.*
-  
-  The sword is his own flame now—heavy, hard to carry, but undeniably his.
   
   ---
   ## The Duel in the Snow
   
-  Guts challenges Griffith to earn his freedom. No rage, just resolve.
+  Guts challenges Griffith to earn his freedom. No rage, just resolve.  Watch it as no words do it justice: You are going to be alright! I WONT EXPLAIN FURTHER
   
-  Watch it here—no words do it justice:
+ 
   
   <div class="video-wrapper">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/bLAWxHXOhAc" title="The Snow Duel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
-  
-  Griffith loses. Shatters his sword. Falls to his knees.
-  
-  Guts walks away, thinking Griffith will recover. That this is just a stumble on the road to his dream.
-  
-  He was wrong.
-  
-  Griffith couldn't handle losing control. His identity was built on being the center—everyone orbiting his ambition. When his best "piece" chose himself, the whole structure collapsed.
-  
-  Desperation, imprisonment, torture. Then the Eclipse.
   
   ---
   ## When You Finally Walk Away
