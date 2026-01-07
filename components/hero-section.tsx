@@ -59,7 +59,8 @@ export function HeroSection() {
               When not coding, I read novels, write poetry, sketch ideas, and stay terminally online chasing new tech, tools.
             </p>
             <p>
-              From Nepal, always open to chatting about projects, books, music, or whatever's on your mind.
+              From Nepal !
+               {/* always open to chatting about projects, books, music, or whatever's on your mind. */}
             </p>
           </motion.div>
         </motion.div>

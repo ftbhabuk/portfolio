@@ -5,7 +5,7 @@ export const berserkBonfire = {
   date: "December 24, 2025",
   category: "anime & life",
   readTime: 14,
-  tags: ["berserk", "anime", "manga", "personal", "philosophy", "guts", "griffith"],
+  tags: ["berserk", "anime","philosophy", "guts", "griffith"],
   image: "/images/berserk-main.jpg",
   content: `The bonfire scene in Berserk wrecked me.
 

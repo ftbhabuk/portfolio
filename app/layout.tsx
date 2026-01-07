@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Portfolio of Bhabuk Bhattarai - CS student exploring literature, poetry, and creative coding projects.",
   metadataBase: new URL("https://bhabuk.dev"),
   openGraph: {
-    title: "Bhabuk Bhattarai | CS Student & Writer",
+    title: "Bhabuk|",
     description:
       "Portfolio of Bhabuk Bhattarai - CS student exploring literature, poetry, and creative coding projects.",
     url: "https://bhabuk.dev",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bhabuk Bhattarai | CS Student & Writer",
+    title: "Bhabuk Bhattarai",
     description:
       "Portfolio of Bhabuk Bhattarai - CS student exploring literature, poetry, and creative coding projects.",
     images: [`/images/og-image.png?v=${timestamp}`],

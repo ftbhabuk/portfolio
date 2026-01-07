@@ -6,7 +6,7 @@ export const melodySkyPost = {
     category: "Transcript ",
     readTime: 5,
     tags: ["music", "feelings", "personal",],
-    image: "/images/melody.png",
+    // image: "/images/melody.png",
     // audioFile: "/audio.mp3",
     youtubeLink: "https://www.youtube.com/watch?v=LGSClSL4WG4",
     content: `<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 2rem;">
