@@ -1,7 +1,8 @@
 export const myLoveForMovies = {
     id: "my-love-for-movies",
-    title: "The Power to Dream: Why I Watch Movies",
+    title: "The Power to Dream: Why I Watch Movies", // needs probably more catchy title and excerpt 
     excerpt: "Movies gave me something I couldn't find anywhere else—the ability to feel things I hadn't experienced, to imagine worlds beyond my own, to understand that loneliness and beauty could exist in the same frame.",
+    
     date: "January 16, 2026",
     category: "cinema & soul",
     readTime: 10,
@@ -126,3 +127,27 @@ export const myLoveForMovies = {
   \\
     `
   };
+
+//   I've never been to cinema halls btw i've watched alot of movies.. in high school days after school whinle doing my homework  when there was no electricity solar panels in vcd palyers in night with cd players  .. its my first tjhought of watching movie..
+// it opened  the portal of imagination and creativity for me.. 
+// movie to include: 
+/* nightclawrel;
+her ;
+goodwill hunting;
+probably good some of my favourite animes too bro.. ? (still in movie category no haha like :
+:your lie in april;
+
+)
+
+
+thing is movies pushed me towards the direction of reading books and writing poetry .. music genras and so on.. ie more creative works since childhood... include it in more robust form in the topmost part as intro to creative stuff for me..
+
+
+
+
+
+
+
+
+
+*/
