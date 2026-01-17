@@ -15,7 +15,7 @@ export interface BlogPost {
   category: string
   readTime: number
   tags: string[]
-  // image: string
+  image?: string
   content: string
 }
 
