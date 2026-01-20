@@ -8,33 +8,65 @@ import { Suspense } from "react"
 const timestamp = new Date().getTime()
 
 export const metadata: Metadata = {
-  title: "Bhabuk Bhattarai | CS Student & Writer",
-  description: "Portfolio of Bhabuk Bhattarai - CS student exploring literature, poetry, and creative coding projects.",
-  metadataBase: new URL("https://bhabuk.dev"),
+  title: "Bhabuk Bhattarai | Web Developer & CS Student",
+  description:
+    "Computer Science student and web developer specializing in React, Next.js, and modern web technologies. Exploring the intersection of technology, literature, and creative writing.",
+  metadataBase: new URL("https://bhabukb.com.np"),
+  keywords: [
+    "Bhabuk Bhattarai",
+    "Web Developer",
+    "CS Student",
+    "React Developer",
+    "Next.js",
+    "Frontend Developer",
+    "Writer",
+    "Poetry",
+    "Creative Coding",
+    "Portfolio",
+    "Nepal Developer",
+    "JavaScript Developer",
+    "TypeScript",
+    "Full Stack Developer",
+  ],
+  authors: [{ name: "Bhabuk Bhattarai", url: "https://bhabukb.com.np" }],
+  creator: "Bhabuk Bhattarai",
+  publisher: "Bhabuk Bhattarai",
+  category: "Technology",
   openGraph: {
-    title: "Bhabuk|",
+    title: "Bhabuk Bhattarai | Web Developer & CS Student",
     description:
-      "Portfolio of Bhabuk Bhattarai - CS student exploring literature, poetry, and creative coding projects.",
-    url: "https://bhabuk.dev",
-    siteName: "Bhabuk Bhattarai",
+      "Computer Science student and web developer specializing in React, Next.js, and modern web technologies. Building innovative web experiences.",
+    url: "https://bhabukb.com.np",
+    siteName: "Bhabuk Bhattarai Portfolio",
     images: [
       {
         url: `/images/og-image.png?v=${timestamp}`,
         width: 1200,
         height: 630,
-        alt: "Bhabuk Bhattarai",
+        alt: "Bhabuk Bhattarai - Web Developer & CS Student",
       },
     ],
     locale: "en_US",
-    type: "website",
+    type: "profile", // Changed from "website" to "profile" for personal site
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bhabuk Bhattarai",
+    title: "Bhabuk Bhattarai | Web Developer & CS Student",
     description:
-      "Portfolio of Bhabuk Bhattarai - CS student exploring literature, poetry, and creative coding projects.",
+      "CS student and web developer building with React, Next.js, and modern web technologies.",
     images: [`/images/og-image.png?v=${timestamp}`],
     creator: "@FellowTravell20",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 }
 
