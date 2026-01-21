@@ -8,26 +8,26 @@ import { Suspense } from "react"
 const timestamp = new Date().getTime()
 
 export const metadata: Metadata = {
-  title: "Bhabuk Bhattarai | Web Developer & CS Student",
+  title: "Bhabuk Bhattarai | Full Stack Developer & Creative Coder from Nepal",
   description:
-    "Computer Science student and web developer specializing in React, Next.js, and modern web technologies. Exploring the intersection of technology, literature, and creative writing.",
+    "CS student and full stack developer building AI poetry generators, interactive novels, and generative art with React, Next.js, Python, and Three.js.",
   metadataBase: new URL("https://bhabukb.com.np"),
   keywords: [
     "Bhabuk Bhattarai",
-    "Web Developer",
-    "CS Student",
-    "React Developer",
-    "Next.js",
-    "Frontend Developer",
-    "Writer",
-    "Poetry",
-    "Creative Coding",
-    "Portfolio",
-    "Nepal Developer",
-    "JavaScript Developer",
-    "TypeScript",
     "Full Stack Developer",
+    "Nepal Developer",
+    "AI Poetry",
+    "Next.js",
+    "React",
+    "Creative Coding",
+    "Generative Art",
+    "Web Developer Nepal",
+    "Three.js",
+    "Python Developer",
   ],
+  verification: {
+    google: "u8WvXEA5snMQbMygIHo4z7CYHEapFfBXsTC",
+  },
   authors: [{ name: "Bhabuk Bhattarai", url: "https://bhabukb.com.np" }],
   creator: "Bhabuk Bhattarai",
   publisher: "Bhabuk Bhattarai",
@@ -93,7 +93,7 @@ export default function RootLayout({
         <meta property="og:image:secure_url" content={`https://bhabuk.dev/images/og-image.png?v=${timestamp}`} />
 
         {/* Additional social media tags */}
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://bhabuk.dev" />
         <meta property="og:title" content="Bhabuk Bhattarai | CS Student & Writer" />
         <meta

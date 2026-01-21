@@ -8,7 +8,7 @@ export function JsonLd() {
     alternateName: "Bhabuk",
     url: "https://bhabukb.com.np",
     image: "https://bhabukb.com.np/images/profile.png", // We'll talk about this
-    jobTitle: "Computer Science Student & Web Developer",
+    jobTitle: "Full Stack Developer & Creative Coder",
     description:
       "Computer Science student, web developer, and creative writer exploring the intersection of technology and literature. Building with React, Next.js, and modern web technologies.",
     
@@ -24,6 +24,13 @@ export function JsonLd() {
       "Literature",
       "Computer Science",
       "Frontend Development",
+      "Python",
+      "Three.js",
+      "Generative Art",
+      "Interactive Storytelling",
+      "Web Scraping",
+      "Automation",
+      "Computer Vision",
     ],
     
     // Your skills
@@ -37,7 +44,7 @@ export function JsonLd() {
           addressCountry: "NP",
         },
       },
-      skills: "React, Next.js, TypeScript, Web Development, Technical Writing",
+      skills: "React, Next.js, TypeScript, Web Development, Technical Writing, Python, Three.js, Computer Vision, Generative Art, AI/ML",
     },
     
     // Social links

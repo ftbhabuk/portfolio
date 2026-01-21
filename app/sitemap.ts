@@ -6,25 +6,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://bhabukb.com.np",
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 1,
+      priority: 1.0,
     },
     {
-      url: "https://bhabukb.com.np/#work",
+      url: "https://bhabukb.com.np/blog",
       lastModified: new Date(),
       changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: "https://bhabukb.com.np/blog/my-love-for-movies",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: "https://bhabukb.com.np/#about",
+      url: "https://bhabukb.com.np/blog/berserk-bonfire",
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: "https://bhabukb.com.np/#across-the-web",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.5,
+      priority: 0.8,
     },
   ]
 }
