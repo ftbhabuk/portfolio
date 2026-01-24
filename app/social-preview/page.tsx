@@ -20,7 +20,7 @@ export default function SocialPreviewPage() {
 
             <div className="space-y-8">
               {/* Facebook Preview */}
-              <div>
+              <div> 
                 <h3 className="font-medium text-gray-900 mb-2">Facebook</h3>
                 <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
                   <div className="max-w-md mx-auto bg-white rounded-md shadow-sm overflow-hidden">

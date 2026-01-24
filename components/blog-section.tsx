@@ -24,10 +24,15 @@ export function BlogSection() {
 
         {/* Grid layout - 2 columns on larger screens */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          {displayedPosts.map((post) => (
+          {displayedPosts.map((post, index) => (
             <article 
               key={post.id}
               className="group border-b border-border pb-8"
+              style={{
+                opacity: 0,
+                animation: 'fadeIn 0.5s ease-out forwards',
+                animationDelay: showAll && index >= 2 ? `${(index - 2) * 100}ms` : '0ms'
+              }}
             >
               <Link href={`/blog/${post.id}`} className="block">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">

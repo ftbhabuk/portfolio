@@ -17,6 +17,7 @@ category: Projects
 readTime: 5
 tags: [tag1, tag2, tag3]
 image: /path-to-image.jpg
+
 ---
 
 Your markdown content goes here...
@@ -75,12 +76,7 @@ const example = "code block with syntax highlighting"
 ---
 \`\`\`
 
-## Tips
 
-- Keep your `id` field URL-friendly (lowercase, hyphens instead of spaces)
-- Use descriptive tags for better categorization
-- Add high-quality images to enhance your posts
-- Write engaging excerpts to attract readers
 \`\`\`
 \`\`\`
 
