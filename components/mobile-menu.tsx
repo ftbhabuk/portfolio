@@ -5,6 +5,7 @@ import { X } from "lucide-react"
 import { useScrollContext } from "./smooth-scroll-provider"
 import { createPortal } from "react-dom"
 import { useEffect, useState } from "react"
+import { ThemeToggle } from "./theme-toggle"
 
 interface MobileMenuProps {
   isOpen: boolean
@@ -55,7 +56,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-[#1a1a1c]/95 backdrop-blur-md"
+            className="fixed inset-0 bg-background/95 backdrop-blur-md"
             onClick={onClose}
             style={{ zIndex: 1 }}
           />
@@ -66,14 +67,14 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             animate={{ translateX: 0 }}
             exit={{ translateX: "100%" }}
             transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1.0] }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-xs bg-[#1a1a1c] shadow-xl flex flex-col h-full"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-xs bg-background shadow-xl flex flex-col h-full"
             style={{ zIndex: 2, willChange: "transform" }}
           >
-            <div className="flex justify-between items-center p-6 border-b border-foreground/10">
+            <div className="flex justify-between items-center p-6 border-b border-border">
               <span className="nav-text">Menu</span>
               <button
                 onClick={onClose}
-                className="text-foreground-secondary hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Close menu"
               >
                 <X className="h-5 w-5" />
@@ -87,7 +88,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     key={item.name}
                     href={item.href}
                     className={`mobile-nav-text ${
-                      currentSection === item.id ? "text-foreground" : "text-foreground-secondary hover:text-foreground"
+                      currentSection === item.id ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                     } transition-colors duration-300 relative pl-4`}
                     onClick={(e) => {
                       e.preventDefault()
@@ -97,7 +98,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     {currentSection === item.id && (
                       <motion.span
                         layoutId="activeMenuIndicator"
-                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-foreground rounded-full"
+                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-full"
                         transition={{ duration: 0.3 }}
                       />
                     )}
@@ -107,8 +108,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </nav>
             </div>
 
-            <div className="border-t border-foreground/10 p-6">
-              <p className="meta-text text-foreground-secondary">&copy; {new Date().getFullYear()} Bhabuk Bhattarai</p>
+            <div className="border-t border-border p-6 space-y-4">
+              <div className="flex justify-center">
+                <ThemeToggle />
+              </div>
+              <p className="meta-text text-muted-foreground text-center">&copy; {new Date().getFullYear()} Bhabuk Bhattarai</p>
             </div>
           </motion.div>
         </div>

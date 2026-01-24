@@ -1,5 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
+import { useState } from "react"
 
 const projects = [
   {
@@ -83,6 +84,8 @@ const projects = [
 ]
 
 export function WorkSection() {
+  const [expandedProject, setExpandedProject] = useState<number | null>(null)
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -142,25 +145,28 @@ export function WorkSection() {
             <motion.div key={project.id} variants={itemVariants}>
               <div className="group block py-8 border-t border-foreground/10 transition-all duration-500 ease-out">
                 <div className="flex items-center justify-between">
-                  <a
-                    href={project.liveLink || project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-title text-foreground/80 group-hover:text-foreground transition-colors duration-500 ease-out"
+                  <button
+                    onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
+                    className="project-title text-foreground/80 group-hover:text-foreground transition-colors duration-500 ease-out text-left"
                   >
                     {project.title}
-                  </a>
+                  </button>
                   <div className="meta-text text-foreground-secondary">{project.year}</div>
                 </div>
 
-                {/* Hover content */}
-                <div className="max-h-0 overflow-hidden group-hover:max-h-40 transition-all duration-500 ease-out">
-                  <p className="project-description text-foreground-secondary max-w-2xl pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 ease-out">
+                {/* Content that shows on hover (desktop) or click (mobile) */}
+                <div className={`max-h-0 overflow-hidden transition-all duration-500 ease-out ${
+                  expandedProject === project.id ? 'max-h-40' : 'group-hover:max-h-40'
+                }`}>
+                  <p className={`project-description text-foreground-secondary max-w-2xl pt-4 transition-opacity duration-500 delay-100 ease-out ${
+                    expandedProject === project.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`}>
                     {project.description}
                   </p>
 
-                  <div className="flex items-center gap-6 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150 ease-out">
-                    {/* Tech stack first, then GitHub icon – both on the left */}
+                  <div className={`flex items-center gap-6 pt-4 transition-opacity duration-500 delay-150 ease-out ${
+                    expandedProject === project.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                  }`}>
                     <div className="flex items-center gap-4">
                       <div className="flex flex-wrap gap-2">
                         {project.tech.map((tech, i) => (
@@ -179,6 +185,7 @@ export function WorkSection() {
                         rel="noopener noreferrer"
                         className="flex-shrink-0 text-foreground-secondary/70 hover:text-foreground transition-colors"
                         aria-label="View source code on GitHub"
+                        onClick={(e) => e.stopPropagation()}
                       >
                         <svg
                           className="w-5 h-5"

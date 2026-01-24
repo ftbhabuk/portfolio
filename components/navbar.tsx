@@ -80,8 +80,7 @@ export function Navbar() {
             <ThemeToggle />
           </div>
 
-          <div className="md:hidden flex items-center gap-4">
-            <ThemeToggle />
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(true)}
               className="flex items-center justify-center w-10 h-10 rounded-full bg-foreground/5 hover:bg-foreground/10 transition-all duration-300 text-foreground"
