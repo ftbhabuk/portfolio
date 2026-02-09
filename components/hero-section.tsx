@@ -2,7 +2,7 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
-export function HeroSection() {
+export function HeroSection({ onNavigate }: { onNavigate: (view: "hero" | "projects" | "writings" | "contact" | "about") => void }) {
   const [glitchActive, setGlitchActive] = useState(false)
   
   useEffect(() => {
@@ -89,44 +89,44 @@ export function HeroSection() {
             className="font-mono text-sm md:text-base text-foreground-secondary/80 max-w-2xl"
           >
             <TypewriterText 
-              text="Building experiments in code. Sometimes they work. Based in Kathmandu."
-              delay={1000}
+              text="Building experiments in code. Sometimes they work."
+              delay={1}
             />
           </motion.div>
 
           {/* Command-style links */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.4 }}
-            className="flex flex-wrap gap-4 pt-6 font-mono text-sm"
-          >
-            <button
-              onClick={() => window.location.hash = 'projects'}
-              className="group flex items-center gap-2 text-foreground-secondary/60 hover:text-foreground transition-colors"
-            >
-              <span className="text-green-500">$</span>
-              <span className="group-hover:underline underline-offset-4">ls projects/</span>
-            </button>
-            
-            <button
-              onClick={() => window.location.hash = 'contact'}
-              className="group flex items-center gap-2 text-foreground-secondary/60 hover:text-foreground transition-colors"
-            >
-              <span className="text-green-500">$</span>
-              <span className="group-hover:underline underline-offset-4">cat contact.txt</span>
-            </button>
-            
-            <a
-              href="https://github.com/ftbhabuk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-foreground-secondary/60 hover:text-foreground transition-colors"
-            >
-              <span className="text-green-500">$</span>
-              <span className="group-hover:underline underline-offset-4">curl github</span>
-            </a>
-          </motion.div>
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 1.5, duration: 0.5 }}
+    className="flex flex-wrap gap-4 pt-6 font-mono text-sm"
+  >
+    <button
+      onClick={() => onNavigate("projects")}
+      className="group flex items-center gap-2 text-foreground-secondary/60 hover:text-foreground transition-colors"
+    >
+      <span className="text-green-500">$</span>
+      <span className="group-hover:underline underline-offset-4">ls projects/</span>
+    </button>
+
+    <button
+      onClick={() => onNavigate("about")}
+      className="group flex items-center gap-2 text-foreground-secondary/60 hover:text-foreground transition-colors"
+    >
+      <span className="text-green-500">$</span>
+      <span className="group-hover:underline underline-offset-4">cat about.txt</span>
+    </button>
+
+    <a
+      href="https://github.com/ftbhabuk"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-2 text-foreground-secondary/60 hover:text-foreground transition-colors"
+    >
+      <span className="text-green-500">$</span>
+      <span className="group-hover:underline underline-offset-4">curl github →</span>
+    </a>
+  </motion.div>
 
           {/* Pixel grid decoration */}
           <motion.div
