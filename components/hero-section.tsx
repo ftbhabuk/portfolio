@@ -106,7 +106,7 @@ export function HeroSection({ onNavigate }: { onNavigate: (view: "hero" | "proje
       className="group flex items-center gap-2 text-foreground-secondary/60 hover:text-foreground transition-colors"
     >
       <span className="text-green-500">$</span>
-      <span className="group-hover:underline underline-offset-4">ls projects/</span>
+      <span className="group-hover:underline underline-offset-4">ls projects</span>
     </button>
 
     <button

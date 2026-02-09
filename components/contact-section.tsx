@@ -127,7 +127,7 @@ export function ContactSection() {
             className="flex items-start gap-4"
           >
             <span className="text-foreground-secondary/50 w-32 flex-shrink-0">location:</span>
-            <span className="text-foreground-secondary">Kathmandu, Nepal</span>
+            <span className="text-foreground-secondary">Pokhara, Nepal</span>
           </motion.div>
 
           {/* Status */}
@@ -150,8 +150,8 @@ export function ContactSection() {
             transition={{ delay: 1.0 }}
             className="flex items-start gap-4"
           >
-            <span className="text-foreground-secondary/50 w-32 flex-shrink-0">timezone:</span>
-            <span className="text-foreground-secondary/60">UTC+5:45</span>
+            {/* <span className="text-foreground-secondary/50 w-32 flex-shrink-0">timezone:</span> */}
+            {/* <span className="text-foreground-secondary/60">UTC+5:45</span> */}
           </motion.div>
         </motion.div>
 

@@ -67,7 +67,7 @@ export function MarkdownContent({ content }: MarkdownContentProps) {
           <img
             src={src || "/placeholder.svg"}
             alt={alt || ""}
-            className="rounded-lg my-8 w-full border border-border shadow-lg"
+            className="square-lg my-8 w-full border border-border shadow-lg"
           />
         ),
         hr: () => <hr className="my-8 border-border" />,
