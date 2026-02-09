@@ -23,7 +23,7 @@ export default function Home() {
           <div className="flex gap-1 font-mono text-xs">
             {[
               { id: "hero" as View, label: "~/" },
-              { id: "projects" as View, label: "projects/" },
+              // { id: "projects" as View, label: "projects/" },
               { id: "writings" as View, label: "writings/" },
               { id: "about" as View, label: "about/" },
               { id: "contact" as View, label: "contact/" },
