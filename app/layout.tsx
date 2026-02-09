@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { Analytics } from "@vercel/analytics/react"
 import { Suspense } from "react"
+import { GeistPixelSquare } from "geist/font/pixel"
 
 // Current timestamp to force cache refresh
 const timestamp = new Date().getTime()
@@ -76,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={GeistPixelSquare.variable}>
       <head>
         {/* Force refresh of social media cache with timestamp */}
         <meta property="og:image" content={`https://bhabuk.dev/images/og-image.png?v=${timestamp}`} />

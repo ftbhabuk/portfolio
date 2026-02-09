@@ -1,90 +1,48 @@
-"use client"
-
-import { motion } from "framer-motion"
-
+// components/about-section.tsx
 export function AboutSection() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1,
-        ease: [0.25, 0.1, 0.25, 1.0],
-      },
-    },
-  }
-
-  const titleVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1.0],
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1.0],
-      },
-    },
-  }
-
   return (
-    <section id="about" className="section-spacing">
-      <div className="container-xl">
-        <motion.h2
-          variants={titleVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="section-title mb-24"
-        >
-          About
-        </motion.h2>
+    <section className="min-h-screen py-20 px-8 md:px-16 lg:px-24">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-center gap-2 text-foreground-secondary/60 text-sm font-mono mb-8">
+          <span className="text-green-500">➜</span>
+          <span>man bhabuk</span>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24"
-        >
-          <motion.div variants={itemVariants} className="flex flex-col space-y-16">
-  <div>
-    <p className="body-text text-foreground-secondary">
-      I'm a Computer Science student from Nepal who spends way too much time playing with AI models and turning code into something creative.
-    </p>
-  </div>
-  <div>
-    <p className="body-text text-foreground-secondary">
-      I love building weird interactive things — generative art, literature tools, strange web experiments — basically anything where tech meets imagination.
-    </p>
-  </div>
-</motion.div>
+        <div className="font-mono text-sm space-y-6 text-foreground-secondary/70">
+          <div>
+            <div className="text-foreground mb-2">NAME</div>
+            <div className="pl-8">Bhabuk Bhattarai - Developer, Writer, Tinkerer</div>
+          </div>
 
-<motion.div variants={itemVariants} className="flex flex-col space-y-6 justify-start">
-  <div>
-    <p className="body-text text-foreground-secondary">
-      Outside coding, I'm usually lost in novels, writing poems or short stories, messing around with music, or sketching random ideas.
-    </p>
-  </div>
-  <div>
-    <p className="body-text text-foreground-secondary">
-      Always down to chat about wild project ideas, creativity, literature, or just share playlists. Hit me up if something sounds fun.
-    </p>
-  </div>
-</motion.div>
-        </motion.div>
+          <div>
+            <div className="text-foreground mb-2">SYNOPSIS</div>
+            <div className="pl-8">
+              Building experiments at the intersection of code and creativity.
+              Based in Kathmandu, Nepal.
+            </div>
+          </div>
+
+          <div>
+            <div className="text-foreground mb-2">DESCRIPTION</div>
+            <div className="pl-8 space-y-4">
+              <p>
+                I write code, poetry, and sometimes they overlap. Currently exploring
+                web experiences, generative systems, and interactive fiction.
+              </p>
+              <p>
+                When not coding: reading, wandering, or attempting to capture
+                fleeting thoughts before they vanish.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <div className="text-foreground mb-2">SEE ALSO</div>
+            <div className="pl-8">
+              ls projects/, cat writings.log, whois contact
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

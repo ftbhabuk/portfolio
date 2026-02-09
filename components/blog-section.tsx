@@ -1,84 +1,112 @@
 "use client"
 import { useState } from "react"
 import Link from "next/link"
-import { ChevronDown, Calendar } from "lucide-react"
+import { motion } from "framer-motion"
 import { getAllBlogPosts } from "@/lib/blog-posts"
-import type { BlogPost } from "@/lib/blog-posts"
 
 export function BlogSection() {
   const blogPosts = getAllBlogPosts()
   const [showAll, setShowAll] = useState(false)
-  const displayedPosts = showAll ? blogPosts : blogPosts.slice(0, 2)
-  const hasMore = blogPosts.length > 2
+  const displayedPosts = showAll ? blogPosts : blogPosts.slice(0, 3)
+  const hasMore = blogPosts.length > 3
 
   return (
-    <section id="blog" className="py-20 px-4 md:px-8 lg:px-16">
-      <div className="max-w-7xl mx-auto">
-        {/* Simple header */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-semibold mb-2">Writing</h2>
-          <p className="text-muted-foreground">
-            Thoughts and reflections on what I find interesting
+    <section id="blog" className="min-h-screen py-20 px-8 md:px-16 lg:px-24">
+      <div className="max-w-6xl mx-auto">
+        {/* Terminal header */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
+        >
+          <div className="flex items-center gap-2 text-foreground-secondary/60 text-sm font-mono mb-2">
+            <span className="text-green-500">➜</span>
+            <span>~/writings</span>
+          </div>
+          <h2 
+            className="text-2xl md:text-3xl tracking-wider uppercase mb-2"
+            style={{ fontFamily: 'var(--font-geist-pixel-square), monospace' }}
+          >
+            Log Entries
+          </h2>
+          <p className="font-mono text-xs text-foreground-secondary/50">
+            tail -f thoughts.log
           </p>
-        </div>
+        </motion.div>
 
-        {/* Grid layout - 2 columns on larger screens */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        {/* Log entries */}
+        <div className="space-y-0 border-t border-foreground/10">
           {displayedPosts.map((post, index) => (
-            <article 
+            <motion.article
               key={post.id}
-              className="group border-b border-border pb-8"
-              style={{
-                opacity: 0,
-                animation: 'fadeIn 0.5s ease-out forwards',
-                animationDelay: showAll && index >= 2 ? `${(index - 2) * 100}ms` : '0ms'
-              }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05, duration: 0.4 }}
+              className="group border-b border-foreground/5 hover:bg-foreground/[0.02] transition-colors"
             >
-              <Link href={`/blog/${post.id}`} className="block">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                  <Calendar className="w-3.5 h-3.5" />
-                  <time>{post.date}</time>
-                </div>
-                
-                <h3 className="text-xl font-medium mb-2 group-hover:text-primary transition-colors">
-                  {post.title}
-                </h3>
-                
-                <p className="text-muted-foreground mb-3 leading-relaxed line-clamp-3">
-                  {post.excerpt}
-                </p>
-                
-                {post.tags && post.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs text-muted-foreground"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
+              <Link href={`/blog/${post.id}`} className="block py-6">
+                <div className="flex items-start gap-4">
+                  {/* Timestamp */}
+                  <div className="font-mono text-xs text-foreground-secondary/50 w-28 flex-shrink-0 pt-1">
+                    [{post.date}]
                   </div>
-                )}
+
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-mono text-foreground group-hover:text-green-500 transition-colors mb-2">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-foreground-secondary/70 leading-relaxed mb-3">
+                      {post.excerpt}
+                    </p>
+                    
+                    {/* Tags */}
+                    {post.tags && post.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 font-mono text-xs">
+                        {post.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-foreground-secondary/50 bg-foreground/5 px-2 py-0.5"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Arrow indicator */}
+                  <div className="text-foreground-secondary/30 group-hover:text-green-500 group-hover:translate-x-1 transition-all pt-1">
+                    →
+                  </div>
+                </div>
               </Link>
-            </article>
+            </motion.article>
           ))}
         </div>
 
-        {/* Simple show more button */}
+        {/* Show more/less */}
         {hasMore && (
-          <div className="mt-12 text-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mt-8 pt-6 border-t border-foreground/10"
+          >
             <button
               onClick={() => setShowAll(!showAll)}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
+              className="font-mono text-sm text-foreground-secondary/60 hover:text-green-500 transition-colors flex items-center gap-2"
             >
-              {showAll ? "Show less" : "View all posts"}
-              <ChevronDown 
-                className="w-4 h-4 transition-transform"
-                style={{ transform: showAll ? 'rotate(180deg)' : 'rotate(0deg)' }}
-              />
+              <span className="text-green-500">$</span>
+              {showAll ? 'head -n 3 thoughts.log' : 'cat thoughts.log'}
+              <span className="text-foreground-secondary/40">
+                ({showAll ? 'show less' : `+${blogPosts.length - 3} more`})
+              </span>
             </button>
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

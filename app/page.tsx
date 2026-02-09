@@ -1,54 +1,100 @@
 "use client"
-
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react"
 import { HeroSection } from "@/components/hero-section"
 import { WorkSection } from "@/components/work-section"
 import { BlogSection } from "@/components/blog-section"
-import { AboutSection } from "@/components/about-section"
 import { ContactSection } from "@/components/contact-section"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { CustomCursor } from "@/components/custom-cursor"
-import { SmoothScrollProvider, SectionTransition } from "@/components/smooth-scroll-provider"
+
+type View = "hero" | "projects" | "writings" | "contact"
 
 export default function Home() {
+  const [currentView, setCurrentView] = useState<View>("hero")
+
   return (
-    <SmoothScrollProvider>
-      <motion.main
-        className="min-h-screen"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1.0] }}
-      >
-        {/* <CustomCursor /> */}
-        <Navbar />
+    <main className="min-h-screen bg-background">
+      <Navbar />
+      
+      {/* Terminal tab bar */}
+      <div className="fixed top-16 left-0 right-0 z-40 bg-background border-b border-foreground/10">
+        <div className="max-w-6xl mx-auto px-8 md:px-16 lg:px-24 flex gap-2 font-mono text-xs">
+          {[
+            { id: "hero" as View, label: "~/" },
+            { id: "projects" as View, label: "projects/" },
+            { id: "writings" as View, label: "writings/" },
+            { id: "contact" as View, label: "contact/" },
+          ].map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setCurrentView(tab.id)}
+              className={`px-4 py-2 border-b-2 transition-colors ${
+                currentView === tab.id
+                  ? "border-green-500 text-foreground"
+                  : "border-transparent text-foreground-secondary/50 hover:text-foreground-secondary"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
-        <section id="hero">
-          <SectionTransition id="hero">
-            <HeroSection />
-          </SectionTransition>
-        </section>
+      {/* Content area - instant switch, no smooth fade */}
+      <div className="pt-32">
+        <AnimatePresence mode="wait">
+          {currentView === "hero" && (
+            <motion.div
+              key="hero"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+            >
+              <HeroSection />
+            </motion.div>
+          )}
+          
+          {currentView === "projects" && (
+            <motion.div
+              key="projects"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+            >
+              <WorkSection />
+            </motion.div>
+          )}
 
-        <section id="work">
-          <SectionTransition id="work">
-            <WorkSection />
-          </SectionTransition>
-        </section>
+          {currentView === "writings" && (
+            <motion.div
+              key="writings"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+            >
+              <BlogSection />
+            </motion.div>
+          )}
 
-        <section id="blog">
-          <SectionTransition id="blog">
-            <BlogSection />
-          </SectionTransition>
-        </section>
+          {currentView === "contact" && (
+            <motion.div
+              key="contact"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+            >
+              <ContactSection />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
-        <section id="across-the-web">
-          <SectionTransition id="across-the-web">
-            <ContactSection />
-          </SectionTransition>
-        </section>
-
-        <Footer />
-      </motion.main>
-    </SmoothScrollProvider>
+      <Footer />
+    </main>
   )
 }
