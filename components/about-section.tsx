@@ -69,7 +69,7 @@ export function AboutSection() {
               usually live somewhere between utility and art.
             </p>
             <p>
-              I also write—poetry, stories, the occasional rambling post. Sometimes the
+              I also write—poetry, stories, novels, the occasional rambling post. Sometimes the
               code and the writing blur together. Interactive fiction, generative experiments,
               things that feel alive.
             </p>
