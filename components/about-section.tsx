@@ -74,7 +74,7 @@ export function AboutSection() {
               things that feel alive.
             </p>
             <p>
-              When I'm not staring at a screen: reading, walking, trying to remember where
+              When I'm not staring at a screen: reading, travelling , trying to remember where
               I put that half-finished thought from last week.
             </p>
           </motion.div>
