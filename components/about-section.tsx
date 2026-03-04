@@ -123,6 +123,16 @@ export function AboutSection() {
               <span className="ml-2">Open to work — looking for opportunities to build cool stuff</span>
             </div>
           </motion.div>
+
+          {/* Back to top */}
+          <div className="flex justify-center pt-8">
+            <a
+              href="#hero"
+              className="border border-foreground-secondary/30 px-4 py-2 text-foreground-secondary/50 hover:text-green-500 hover:border-green-500 text-xs font-mono transition-colors"
+            >
+              ↑ Can I Go Up? Too Lazy To Scroll
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -9,7 +9,7 @@ import { GeistPixelSquare } from "geist/font/pixel"
 const timestamp = new Date().getTime()
 
 export const metadata: Metadata = {
-  title: "Bhabuk Bhattarai | Full Stack Developer & Creative Coder from Nepal",
+  title: "Bhabuk",
   description:
     "CS student and full stack developer building AI poetry generators, interactive novels, and generative art with React, Next.js, Python, and Three.js.",
   metadataBase: new URL("https://bhabukb.com.np"),

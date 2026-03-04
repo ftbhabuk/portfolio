@@ -2,7 +2,7 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
-export function HeroSection({ onNavigate }: { onNavigate: (view: "hero" | "projects" | "writings" | "contact" | "about") => void }) {
+export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "projects" | "writings" | "contact" | "about") => void } = {}) {
   const [glitchActive, setGlitchActive] = useState(false)
   
   useEffect(() => {
@@ -90,6 +90,7 @@ export function HeroSection({ onNavigate }: { onNavigate: (view: "hero" | "proje
           >
             <TypewriterText 
               text="Building experiments in code. Sometimes they work."
+              // sometimes it work sometimes I dont.
               delay={1}
             />
           </motion.div>
@@ -101,21 +102,21 @@ export function HeroSection({ onNavigate }: { onNavigate: (view: "hero" | "proje
     transition={{ delay: 1.5, duration: 0.5 }}
     className="flex flex-wrap gap-4 pt-6 font-mono text-sm"
   >
-    <button
-      onClick={() => onNavigate("projects")}
+    <a
+      href="#projects"
       className="group flex items-center gap-2 text-foreground-secondary/60 hover:text-foreground transition-colors"
     >
       <span className="text-green-500">$</span>
       <span className="group-hover:underline underline-offset-4">ls projects</span>
-    </button>
+    </a>
 
-    <button
-      onClick={() => onNavigate("about")}
+    <a
+      href="#about"
       className="group flex items-center gap-2 text-foreground-secondary/60 hover:text-foreground transition-colors"
     >
       <span className="text-green-500">$</span>
       <span className="group-hover:underline underline-offset-4">cat about.txt</span>
-    </button>
+    </a>
 
     <a
       href="https://github.com/ftbhabuk"

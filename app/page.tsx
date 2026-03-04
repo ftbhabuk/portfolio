@@ -1,118 +1,94 @@
 "use client"
-import { motion, AnimatePresence } from "framer-motion"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { HeroSection } from "@/components/hero-section"
 import { WorkSection } from "@/components/work-section"
 import { BlogSection } from "@/components/blog-section"
-import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { AboutSection } from "@/components/about-section"
 
-type View = "hero" | "projects" | "writings" | "contact" | "about"
+const sections = [
+  { id: "hero", label: "home" },
+  { id: "projects", label: "work" },
+  { id: "writings", label: "blog" },
+  { id: "about", label: "about" },
+] as const
 
 export default function Home() {
-  const [currentView, setCurrentView] = useState<View>("hero")
+  const [activeSection, setActiveSection] = useState<string>("hero")
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      { threshold: 0.3 }
+    )
+
+    sections.forEach(({ id }) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <main className="min-h-screen bg-background">
-      {/* Single terminal tab bar - this IS the navbar */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-foreground/10">
-        <div className="max-w-6xl mx-auto px-8 md:px-16 lg:px-24 py-3 flex items-center justify-between">
-          {/* Tabs */}
-          <div className="flex gap-1 font-mono text-xs">
-            {[
-              { id: "hero" as View, label: "~/" },
-              // { id: "projects" as View, label: "projects/" },
-              { id: "writings" as View, label: "writings/" },
-              { id: "about" as View, label: "about/" },
-              { id: "contact" as View, label: "contact/" },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setCurrentView(tab.id)}
-                className={`px-3 py-1.5 transition-colors ${
-                  currentView === tab.id
-                    ? "bg-foreground/5 text-green-500"
-                    : "text-foreground-secondary/50 hover:text-foreground-secondary hover:bg-foreground/[0.02]"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+      {/* Fixed sidebar - terminal style */}
+      <div className="fixed left-0 top-0 bottom-0 w-16 md:w-20 z-50 bg-background/80 backdrop-blur-md border-r border-foreground/10 flex flex-col">
+        {/* Logo/Brand */}
+        <div className="p-4 border-b border-foreground/10">
+          <span className="font-mono text-xs text-green-500">~/</span>
+        </div>
 
-          {/* Theme toggle */}
+        {/* Navigation links */}
+        <nav className="flex-1 flex flex-col gap-1 p-2 font-mono text-xs">
+          {sections.map((tab) => (
+            <a
+              key={tab.id}
+              href={`#${tab.id}`}
+              className={`px-2 py-2 transition-colors ${
+                activeSection === tab.id
+                  ? "text-green-500 bg-green-500/10"
+                  : "text-foreground-secondary/50 hover:text-green-500 hover:bg-foreground/[0.02]"
+              }`}
+            >
+              {tab.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Theme toggle at bottom */}
+        <div className="p-4 border-t border-foreground/10">
           <ThemeToggle />
         </div>
       </div>
 
-      {/* Content - starts below tab bar */}
-      <div className="pt-14">
-        <AnimatePresence mode="wait">
-          {currentView === "hero" && (
-            <motion.div
-              key="hero"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-            >
-              <HeroSection onNavigate={setCurrentView} />
-            </motion.div>
-          )}
-          
-          {currentView === "projects" && (
-            <motion.div
-              key="projects"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-            >
-              <WorkSection />
-            </motion.div>
-          )}
+      {/* Main content - scrollable */}
+      <div className="ml-16 md:ml-20 pb-20">
+        <section id="hero">
+          <HeroSection />
+        </section>
+        
+        <section id="projects">
+          <WorkSection />
+        </section>
 
-          {currentView === "writings" && (
-            <motion.div
-              key="writings"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-            >
-              <BlogSection />
-            </motion.div>
-          )}
+        <section id="writings">
+          <BlogSection />
+        </section>
 
-          {currentView === "contact" && (
-            <motion.div
-              key="contact"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-            >
-              <ContactSection />
-            </motion.div>
-          )}
+        <section id="about">
+          <AboutSection />
+        </section>
 
-          {currentView === "about" && (
-            <motion.div
-              key="about"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-            >
-              <AboutSection />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <Footer />
       </div>
-
-      <Footer />
     </main>
   )
 }
