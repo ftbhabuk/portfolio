@@ -6,16 +6,18 @@ import { BlogSection } from "@/components/blog-section"
 import { Footer } from "@/components/footer"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { AboutSection } from "@/components/about-section"
+import { MobileMenu } from "@/components/mobile-menu"
 
 const sections = [
   { id: "hero", label: "home" },
-  { id: "projects", label: "work" },
-  { id: "writings", label: "blog" },
+  { id: "work", label: "work" },
+  { id: "blog", label: "blog" },
   { id: "about", label: "about" },
 ] as const
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>("hero")
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,8 +41,23 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-foreground/10 bg-background/95 backdrop-blur-md md:hidden">
+        <div className="flex h-16 items-center justify-between px-4">
+          <a href="#hero" className="flex items-center gap-2 font-mono text-sm text-foreground-secondary hover:text-foreground">
+            <span className="text-green-500">~/</span>
+            <span>bhabuk</span>
+          </a>
+          <MobileMenu
+            activeSection={activeSection}
+            isOpen={isMobileMenuOpen}
+            onOpenChange={setIsMobileMenuOpen}
+            sections={sections}
+          />
+        </div>
+      </header>
+
       {/* Fixed sidebar - terminal style */}
-      <div className="fixed left-0 top-0 bottom-0 w-16 md:w-20 z-50 bg-background/80 backdrop-blur-md border-r border-foreground/10 flex flex-col">
+      <div className="fixed left-0 top-0 bottom-0 z-50 hidden w-16 flex-col border-r border-foreground/10 bg-background/80 backdrop-blur-md md:flex md:w-20">
         {/* Logo/Brand */}
         <div className="p-4 border-b border-foreground/10">
           <span className="font-mono text-xs text-green-500">~/</span>
@@ -70,23 +87,11 @@ export default function Home() {
       </div>
 
       {/* Main content - scrollable */}
-      <div className="ml-16 md:ml-20 pb-20">
-        <section id="hero">
-          <HeroSection />
-        </section>
-        
-        <section id="projects">
-          <WorkSection />
-        </section>
-
-        <section id="writings">
-          <BlogSection />
-        </section>
-
-        <section id="about">
-          <AboutSection />
-        </section>
-
+      <div className="pb-20 pt-16 md:ml-20 md:pt-0">
+        <HeroSection />
+        <WorkSection />
+        <BlogSection />
+        <AboutSection />
         <Footer />
       </div>
     </main>

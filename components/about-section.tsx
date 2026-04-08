@@ -20,7 +20,7 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section className="min-h-screen py-20 px-8 md:px-16 lg:px-24 flex items-center">
+    <section id="about" className="flex min-h-screen items-center px-5 py-16 sm:px-8 sm:py-20 md:px-16 lg:px-24">
       <div className="max-w-4xl mx-auto w-full">
         {/* Terminal prompt */}
         <motion.div
@@ -40,7 +40,7 @@ export function AboutSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="font-mono text-sm space-y-10 text-foreground-secondary/70"
+          className="space-y-8 font-mono text-sm text-foreground-secondary/70 sm:space-y-10"
         >
           {/* NAME */}
           <div>
@@ -87,7 +87,7 @@ export function AboutSection() {
             <div className="text-green-500 mb-3">
               <span>stack list:</span>
             </div>
-            <div className="flex flex-wrap gap-x-4 gap-y-2 text-foreground-secondary/80">
+            <div className="flex flex-wrap gap-x-3 gap-y-2 text-foreground-secondary/80 sm:gap-x-4">
               <span>TypeScript</span>
               <span className="text-foreground-secondary/30">•</span>
               <span>Python</span>
@@ -119,7 +119,7 @@ export function AboutSection() {
             </div>
             <div className="text-foreground-secondary/80">
               <span className="text-green-500">◉</span>
-              <span className="ml-2">Open to work — looking for opportunities to build cool stuff</span>
+              <span className="ml-2">Open to work - looking for opportunities to build cool stuff</span>
             </div>
           </motion.div>
 
@@ -127,7 +127,7 @@ export function AboutSection() {
           <div className="flex justify-center pt-8">
             <a
               href="#hero"
-              className="border border-foreground-secondary/30 px-4 py-2 text-foreground-secondary/50 hover:text-green-500 hover:border-green-500 text-xs font-mono transition-colors"
+            className="border border-foreground-secondary/30 px-4 py-2 text-center text-xs font-mono text-foreground-secondary/50 transition-colors hover:border-green-500 hover:text-green-500"
             >
               ↑ Can I Go Up? Too Lazy To Scroll
             </a>
