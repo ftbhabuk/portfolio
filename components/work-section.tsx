@@ -93,7 +93,7 @@ export function WorkSection() {
   const [selectedProcess, setSelectedProcess] = useState<number | null>(null)
   
   return (
-    <section id="work" className="min-h-screen py-20 px-8 md:px-16 lg:px-24">
+    <section id="work" className="min-h-screen px-5 py-16 sm:px-8 sm:py-20 md:px-16 lg:px-24">
       <div className="max-w-6xl mx-auto">
         {/* Terminal header */}
         <motion.div
@@ -124,7 +124,7 @@ export function WorkSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-mono text-xs text-foreground-secondary/40 mb-4 pb-2 border-b border-foreground/10"
+          className="mb-4 hidden border-b border-foreground/10 pb-2 font-mono text-xs text-foreground-secondary/40 md:block"
         >
           <div className="grid grid-cols-12 gap-2">
             <div className="col-span-1">PID</div>
@@ -150,25 +150,30 @@ export function WorkSection() {
                   onClick={() => setSelectedProcess(selectedProcess === project.id ? null : project.id)}
                   className="w-full py-4 text-left"
                 >
-                  <div className="grid grid-cols-12 gap-2 items-center font-mono text-sm">
-                    <div className="col-span-1 text-foreground-secondary/60">
+                  <div className="flex flex-col gap-3 font-mono md:grid md:grid-cols-12 md:items-center md:gap-2 md:text-sm">
+                    <div className="text-xs text-foreground-secondary/60 md:col-span-1 md:text-sm">
                       {String(project.id).padStart(4, '0')}
                     </div>
-                    <div className="col-span-4 text-foreground group-hover:text-green-500 transition-colors">
-                      {project.title}
+                    <div className="md:col-span-4">
+                      <div className="text-base text-foreground transition-colors group-hover:text-green-500 md:text-sm">
+                        {project.title}
+                      </div>
+                      <div className="mt-1 text-xs text-foreground-secondary/60 md:hidden">
+                        {project.category}
+                      </div>
                     </div>
-                    <div className="col-span-3 text-foreground-secondary/60 text-xs">
+                    <div className="hidden text-xs text-foreground-secondary/60 md:col-span-3 md:block">
                       {project.category}
                     </div>
-                    <div className="col-span-2 text-foreground-secondary/50 text-xs">
-                      {project.year}
-                    </div>
-                    <div className="col-span-2">
+                    <div className="flex items-center justify-between gap-3 md:col-span-4 md:grid md:grid-cols-4 md:items-center">
+                      <div className="text-xs text-foreground-secondary/50 md:col-span-2">
+                        {project.year}
+                      </div>
                       <span className={`text-xs px-2 py-0.5 rounded ${
                         project.status === 'LIVE' 
                           ? 'bg-green-500/10 text-green-500' 
                           : 'bg-foreground/5 text-foreground-secondary/50'
-                      }`}>
+                      } md:justify-self-start`}>
                         {project.status}
                       </span>
                     </div>
@@ -180,7 +185,7 @@ export function WorkSection() {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="mt-4 pl-6 border-l-2 border-green-500/30"
+                      className="mt-4 border-l-2 border-green-500/30 pl-4 sm:pl-6"
                     >
                       <div className="space-y-3 font-mono text-xs">
                         <p className="text-foreground-secondary/70 leading-relaxed">
@@ -198,7 +203,7 @@ export function WorkSection() {
                           ))}
                         </div>
 
-                        <div className="flex gap-4 pt-2">
+                        <div className="flex flex-wrap gap-4 pt-2">
                           {project.liveLink && (
                             <a
                               href={project.liveLink}
@@ -237,7 +242,7 @@ export function WorkSection() {
           transition={{ delay: 0.5 }}
           className="mt-8 pt-4 border-t border-foreground/10 font-mono text-xs text-foreground-secondary/40"
         >
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
             <span>{projects.filter(p => p.status === 'LIVE').length} live</span>
             <span>{projects.filter(p => p.status === 'ARCHIVED').length} archived</span>
             <span>{projects.length} total</span>

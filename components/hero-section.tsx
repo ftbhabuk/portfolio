@@ -16,7 +16,7 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
   }, [])
 
   return (
-    <section className="min-h-screen flex items-center justify-start relative overflow-hidden bg-background">
+    <section id="hero" className="relative flex min-h-[calc(100vh-4rem)] items-center justify-start overflow-hidden bg-background px-0 py-16 sm:min-h-screen sm:py-20">
       {/* Pixel noise overlay */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
         <div 
@@ -33,14 +33,14 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.3 }}
         transition={{ delay: 0.5, duration: 1 }}
-        className="absolute top-8 left-8 text-foreground-secondary/20 text-xs font-mono leading-tight select-none"
+        className="absolute left-4 top-6 hidden select-none text-xs leading-tight text-foreground-secondary/20 sm:block md:left-8 md:top-8"
       >
         {`┌─────────────┐
 │ SYSTEM INIT │
 └─────────────┘`}
       </motion.div>
 
-      <div className="w-full max-w-6xl px-8 md:px-16 lg:pl-24">
+      <div className="w-full max-w-6xl px-5 sm:px-8 md:px-16 lg:pl-24">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -71,7 +71,7 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
             className="relative"
           >
             <h1 
-              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider uppercase ${
+              className={`max-w-[11ch] text-3xl leading-tight sm:max-w-none sm:text-5xl md:text-6xl lg:text-7xl tracking-wider uppercase ${
                 glitchActive ? 'glitch' : ''
               }`}
               style={{ fontFamily: 'var(--font-geist-pixel-square), monospace' }}
@@ -86,7 +86,7 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
-            className="font-mono text-sm md:text-base text-foreground-secondary/80 max-w-2xl"
+            className="max-w-xl font-mono text-sm text-foreground-secondary/80 md:text-base"
           >
             <TypewriterText 
               text="Building experiments in code. Sometimes they work."
@@ -97,44 +97,44 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
 
           {/* Command-style links */}
           <motion.div
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 1.5, duration: 0.5 }}
-    className="flex flex-wrap gap-4 pt-6 font-mono text-sm"
-  >
-    <a
-      href="#projects"
-      className="group flex items-center gap-2 text-foreground-secondary/60 hover:text-foreground transition-colors"
-    >
-      <span className="text-green-500">$</span>
-      <span className="group-hover:underline underline-offset-4">ls projects</span>
-    </a>
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.5, duration: 0.5 }}
+            className="flex flex-wrap gap-3 pt-6 font-mono text-sm sm:gap-4"
+          >
+            <a
+              href="#work"
+              className="group flex items-center gap-2 text-foreground-secondary/60 transition-colors hover:text-foreground"
+            >
+              <span className="text-green-500">$</span>
+              <span className="group-hover:underline underline-offset-4">ls projects</span>
+            </a>
 
-    <a
-      href="#about"
-      className="group flex items-center gap-2 text-foreground-secondary/60 hover:text-foreground transition-colors"
-    >
-      <span className="text-green-500">$</span>
-      <span className="group-hover:underline underline-offset-4">cat about.txt</span>
-    </a>
+            <a
+              href="#about"
+              className="group flex items-center gap-2 text-foreground-secondary/60 transition-colors hover:text-foreground"
+            >
+              <span className="text-green-500">$</span>
+              <span className="group-hover:underline underline-offset-4">cat about.txt</span>
+            </a>
 
-    <a
-      href="https://github.com/ftbhabuk"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group flex items-center gap-2 text-foreground-secondary/60 hover:text-foreground transition-colors"
-    >
-      <span className="text-green-500">$</span>
-      <span className="group-hover:underline underline-offset-4">curl github →</span>
-    </a>
-  </motion.div>
+            <a
+              href="https://github.com/ftbhabuk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 text-foreground-secondary/60 transition-colors hover:text-foreground"
+            >
+              <span className="text-green-500">$</span>
+              <span className="group-hover:underline underline-offset-4">curl github →</span>
+            </a>
+          </motion.div>
 
           {/* Pixel grid decoration */}
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ delay: 1.2, duration: 0.8, ease: [0.25, 0.1, 0.25, 1.0] }}
-            className="pt-12 origin-left"
+            className="origin-left pt-10 sm:pt-12"
           >
             <div className="flex gap-1 opacity-20">
               {Array.from({ length: 12 }).map((_, i) => (

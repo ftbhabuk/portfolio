@@ -7,10 +7,10 @@ export function Footer() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      className="border-t border-foreground/10 py-4 mt-20"
+      className="mt-16 border-t border-foreground/10 py-4 sm:mt-20"
     >
-      <div className="max-w-6xl mx-auto px-8 md:px-16 lg:px-24">
-        <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 font-mono text-xs">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-16 lg:px-24">
+        <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-center font-mono text-xs">
           <span className="text-green-500">GitHub:</span>
           <a
             href="https://github.com/ftbhabuk"

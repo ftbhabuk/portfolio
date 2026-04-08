@@ -11,7 +11,7 @@ export function BlogSection() {
   const hasMore = blogPosts.length > 3
 
   return (
-    <section id="blog" className="min-h-screen py-20 px-8 md:px-16 lg:px-24">
+    <section id="blog" className="min-h-screen px-5 py-16 sm:px-8 sm:py-20 md:px-16 lg:px-24">
       <div className="max-w-6xl mx-auto">
         {/* Terminal header */}
         <motion.div
@@ -48,9 +48,9 @@ export function BlogSection() {
               className="group border-b border-foreground/5 hover:bg-foreground/[0.02] transition-colors"
             >
               <Link href={`/blog/${post.id}`} className="block py-6">
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-4">
                   {/* Timestamp */}
-                  <div className="font-mono text-xs text-foreground-secondary/50 w-28 flex-shrink-0 pt-1">
+                  <div className="w-full flex-shrink-0 font-mono text-xs text-foreground-secondary/50 sm:w-28 sm:pt-1">
                     [{post.date}]
                   </div>
 
@@ -79,7 +79,7 @@ export function BlogSection() {
                   </div>
 
                   {/* Arrow indicator */}
-                  <div className="text-foreground-secondary/30 group-hover:text-green-500 group-hover:translate-x-1 transition-all pt-1">
+                  <div className="hidden pt-1 text-foreground-secondary/30 transition-all group-hover:translate-x-1 group-hover:text-green-500 sm:block">
                     →
                   </div>
                 </div>
