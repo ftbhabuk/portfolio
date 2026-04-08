@@ -5,42 +5,78 @@ import { useState } from "react"
 const projects = [
   {
     id: 0,
+    title: "termread",
+    category: "CLI Tool",
+    year: "2026",
+    description:
+      "CLI article reader that fetches any URL, strips ads and noise, and renders clean content in the terminal using Firefox's Readability algorithm and a custom ANSI renderer. Built a vim-style interactive pager with full-text search, pipe-friendly --raw mode, and Catppuccin-themed output.",
+    liveLink: null,
+    githubLink: "https://github.com/ftbhabuk/termread",
+    tech: ["TypeScript", "Bun", "Readability", "ANSI"],
+    status: "CLI"
+  },
+  {
+    id: 1,
+    title: "SX-Tracker",
+    category: "Data Dashboard",
+    year: "2026",
+    description:
+      "Live dashboard tracking 7,000+ Starlink satellites, Falcon 9/Heavy boosters, landing records, and aggregate SpaceX mission stats with daily auto-updates. Built a REST API with search, filtering, and per-satellite altitude history; automated data ingestion from CelesTrak & Space-Track via GitHub Actions cron jobs.",
+    liveLink: "https://spacex-tracker-sx.pages.dev/",
+    githubLink: "https://github.com/ftbhabuk/sx-tracker",
+    tech: ["React", "FastAPI", "PostgreSQL", "GitHub Actions"],
+    status: "LIVE"
+  },
+  {
+    id: 2,
+    title: "Spam Filter",
+    category: "ML / NLP",
+    year: "2025",
+    description:
+      "Naive Bayes email spam classifier built from scratch in Go, trained on the Enron dataset with a bag-of-words model and Laplace smoothing. Outputs accuracy metrics, confusion matrix, and ASCII bar charts; achieved strong classification performance on the held-out test set.",
+    liveLink: null,
+    githubLink: "https://github.com/ftbhabuk/spam-filter",
+    tech: ["Go", "Naive Bayes", "NLP", "Enron Dataset"],
+    status: "CLI"
+  },
+  {
+    id: 3,
     title: "Unwhispered Perhaps",
     category: "Full-Stack CMS",
     year: "2024",
     description:
-      "A personal literary sanctuary where I publish my poems and stories. Features author galleries, community submissions, and an elegant reading experience for exploring poetic works.",
+      "A personal literary sanctuary where I publish poems and stories. Features author galleries, community submissions, and an elegant reading experience. Full-stack publishing platform with a headless CMS enabling writers to manage and publish long-form work.",
     liveLink: "https://poetry-web2.onrender.com",
     githubLink: "https://github.com/ftbhabuk/poetry-web2",
     tech: ["Next.js", "TypeScript", "Payload CMS", "MongoDB", "Express"],
     status: "LIVE"
   },
   {
-    id: 1,
+    id: 4,
     title: "Garden of Words",
     category: "AI & Literature",
     year: "2024",
     description:
-      "AI-powered poetry generator that transforms prompts into verses across multiple forms (Haiku, Sonnet, Free Verse). Features customizable styles, tones, and intelligent creative outputs through fine-tuned language models.",
+      "AI poetry generation platform supporting multiple forms (haiku, sonnet, free verse) with user-controlled tone, mood, and style. Powered by Groq and OpenAI via custom prompt engineering for dynamic, content-aware creative outputs.",
     liveLink: "https://garden-of-words-lac.vercel.app",
     githubLink: "https://github.com/ftbhabuk/Garden_of_words",
     tech: ["Next.js", "TypeScript", "Groq API", "OpenAI", "Framer Motion"],
     status: "LIVE"
   },
   {
-    id: 2,
+    id: 5,
     title: "Blue Sky",
     category: "Interactive Fiction",
     year: "2024",
     description:
-      "My digital unpublished novel exploring longing, loss, and healing through interactive chapters. Featuring dynamic cloud formations that shift with the narrative and scroll-triggered atmospheric audio.",
+      "My digital unpublished novel exploring longing, loss, and healing through immersive chapters. Combining original prose and poetry with cinematic scroll-driven UI, dynamic cloud formations that shift with the narrative, and atmospheric design.",
     liveLink: "https://blue-sky-mu.vercel.app",
     githubLink: "https://github.com/ftbhabuk/Blue-Sky",
     tech: ["Next.js", "TypeScript", "Three.js", "Web Audio API"],
     status: "LIVE"
   },
   {
-    id: 3,
+    id: 6,
     title: "AV-Yoink",
     category: "Media Downloader",
     year: "2024",
@@ -52,19 +88,19 @@ const projects = [
     status: "ARCHIVED"
   },
   {
-    id: 4,
+    id: 7,
     title: "Wave Simulation",
     category: "Creative Coding",
     year: "2024",
     description:
-      "Interactive canvas-based visual simulation where clicks generate dynamic wave patterns and geometrical shapes. Features customizable wave properties, multiple shape modes (fractals, mandalas, spirals), gravity effects, and color palettes for creating mesmerizing generative art.",
+      "Interactive canvas-based visual simulation where clicks generate dynamic wave patterns and geometrical shapes. Features customizable wave properties, multiple shape modes (fractals, mandalas, spirals), gravity effects, and color palettes for creating generative art.",
     liveLink: "https://ftbhabuk.github.io/wave_animate/",
     githubLink: "https://github.com/ftbhabuk/wave_animate",
     tech: ["JavaScript", "HTML5 Canvas", "CSS3"],
     status: "LIVE"
   },
   {
-    id: 5,
+    id: 8,
     title: "Chrome Extensions",
     category: "Browser Tools",
     year: "2024",
@@ -76,7 +112,7 @@ const projects = [
     status: "ARCHIVED"
   },
   {
-    id: 6,
+    id: 9,
     title: "COC Automation",
     category: "Game Automation",
     year: "2024",
@@ -91,7 +127,19 @@ const projects = [
 
 export function WorkSection() {
   const [selectedProcess, setSelectedProcess] = useState<number | null>(null)
-  
+
+  const statusStyle = (status: string) => {
+    switch (status) {
+      case 'LIVE':
+        return 'bg-green-500/10 text-green-500'
+      case 'CLI':
+        return 'bg-blue-500/10 text-blue-400'
+      case 'ARCHIVED':
+      default:
+        return 'bg-foreground/5 text-foreground-secondary/50'
+    }
+  }
+
   return (
     <section id="work" className="min-h-screen px-5 py-16 sm:px-8 sm:py-20 md:px-16 lg:px-24">
       <div className="max-w-6xl mx-auto">
@@ -107,7 +155,7 @@ export function WorkSection() {
             <span className="text-green-500">➜</span>
             <span>~/projects</span>
           </div>
-          <h2 
+          <h2
             className="text-2xl md:text-3xl tracking-wider uppercase mb-2"
             style={{ fontFamily: 'var(--font-geist-pixel-square), monospace' }}
           >
@@ -169,11 +217,7 @@ export function WorkSection() {
                       <div className="text-xs text-foreground-secondary/50 md:col-span-2">
                         {project.year}
                       </div>
-                      <span className={`text-xs px-2 py-0.5 rounded ${
-                        project.status === 'LIVE' 
-                          ? 'bg-green-500/10 text-green-500' 
-                          : 'bg-foreground/5 text-foreground-secondary/50'
-                      } md:justify-self-start`}>
+                      <span className={`text-xs px-2 py-0.5 rounded ${statusStyle(project.status)} md:justify-self-start`}>
                         {project.status}
                       </span>
                     </div>
@@ -191,7 +235,7 @@ export function WorkSection() {
                         <p className="text-foreground-secondary/70 leading-relaxed">
                           {project.description}
                         </p>
-                        
+
                         <div className="flex flex-wrap gap-1.5">
                           {project.tech.map((tech, i) => (
                             <span
@@ -244,6 +288,7 @@ export function WorkSection() {
         >
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             <span>{projects.filter(p => p.status === 'LIVE').length} live</span>
+            <span>{projects.filter(p => p.status === 'CLI').length} cli</span>
             <span>{projects.filter(p => p.status === 'ARCHIVED').length} archived</span>
             <span>{projects.length} total</span>
           </div>

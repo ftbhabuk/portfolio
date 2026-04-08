@@ -28,18 +28,6 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
         />
       </div>
 
-      {/* ASCII corner decoration */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        transition={{ delay: 0.5, duration: 1 }}
-        className="absolute left-4 top-6 hidden select-none text-xs leading-tight text-foreground-secondary/20 sm:block md:left-8 md:top-8"
-      >
-        {`┌─────────────┐
-│ SYSTEM INIT │
-└─────────────┘`}
-      </motion.div>
-
       <div className="w-full max-w-6xl px-5 sm:px-8 md:px-16 lg:pl-24">
         <motion.div
           initial={{ opacity: 0 }}
@@ -111,11 +99,13 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
             </a>
 
             <a
-              href="#about"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group flex items-center gap-2 text-foreground-secondary/60 transition-colors hover:text-foreground"
             >
               <span className="text-green-500">$</span>
-              <span className="group-hover:underline underline-offset-4">cat about.txt</span>
+              <span className="group-hover:underline underline-offset-4">cat resume.pdf</span>
             </a>
 
             <a
