@@ -1,30 +1,22 @@
 import type { MetadataRoute } from "next"
+import { getAllBlogPosts } from "@/lib/blog-posts"
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const siteUrl = "https://bhabukb.com.np"
+  const posts = getAllBlogPosts()
+
   return [
     {
-      url: "https://bhabukb.com.np",
+      url: siteUrl,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1.0,
     },
-    {
-      url: "https://bhabukb.com.np/blog",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: "https://bhabukb.com.np/blog/my-love-for-movies",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+    ...posts.map((post) => ({
+      url: `${siteUrl}/blog/${post.id}`,
+      lastModified: new Date(post.date),
+      changeFrequency: "monthly" as const,
       priority: 0.8,
-    },
-    {
-      url: "https://bhabukb.com.np/blog/berserk-bonfire",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    })),
   ]
 }

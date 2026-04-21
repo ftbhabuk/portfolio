@@ -12,7 +12,7 @@ export function ContactSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl md:text-3xl mb-4">Let's connect</h2>
+          <h2 className="text-2xl md:text-3xl mb-4">Let&apos;s connect</h2>
           <p className="text-foreground-secondary/60 text-sm">
             Find me at the bottom or just scroll up ✌️
           </p>

@@ -1,66 +1,44 @@
 import Script from "next/script"
 
 export function JsonLd() {
+  const siteUrl = "https://bhabukb.com.np"
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Bhabuk Bhattarai",
-    alternateName: "Bhabuk",
-    url: "https://bhabukb.com.np",
-    image: "https://bhabukb.com.np/images/profile.png", // We'll talk about this
-    jobTitle: "Full Stack Developer & Creative Coder",
-    description:
-      "Computer Science student, web developer, and creative writer exploring the intersection of technology and literature. Building with React, Next.js, and modern web technologies.",
-    
-    // What you know/do
-    knowsAbout: [
-      "Web Development",
-      "React",
-      "Next.js",
-      "JavaScript",
-      "TypeScript",
-      "Creative Writing",
-      "Poetry",
-      "Literature",
-      "Computer Science",
-      "Frontend Development",
-      "Python",
-      "Three.js",
-      "Generative Art",
-      "Interactive Storytelling",
-      "Web Scraping",
-      "Automation",
-      "Computer Vision",
-    ],
-    
-    // Your skills
-    hasOccupation: {
-      "@type": "Occupation",
-      name: "Web Developer",
-      occupationLocation: {
-        "@type": "Place",
-        address: {
-          "@type": "PostalAddress",
-          addressCountry: "NP",
-        },
-      },
-      skills: "React, Next.js, TypeScript, Web Development, Technical Writing, Python, Three.js, Computer Vision, Generative Art, AI/ML",
-    },
-    
-    // Social links
-    sameAs: [
-      "https://linkedin.com/in/bhabuk-bhattarai",
-      "https://github.com/bhabukb",
-      "https://twitter.com/FellowTravell20",
-    ],
-    
-  
-    hasCredential: [
+    "@graph": [
       {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "degree",
-        educationalLevel: "Undergraduate",
-        about: "Computer Science",
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "Bhabuk Bhattarai",
+        description:
+          "Portfolio of Bhabuk Bhattarai, a developer and writer building web apps, interactive fiction, and creative coding experiments.",
+      },
+      {
+        "@type": "Person",
+        "@id": `${siteUrl}/#person`,
+        name: "Bhabuk Bhattarai",
+        alternateName: "Bhabuk",
+        url: siteUrl,
+        image: `${siteUrl}/images/socials.png`,
+        jobTitle: "Developer, Writer & Creative Technologist",
+        description:
+          "Computer Science student, developer, and writer building web apps, interactive fiction, and creative coding experiments.",
+        sameAs: [
+          "https://linkedin.com/in/bhabuk-bhattarai",
+          "https://github.com/ftbhabuk",
+          "https://x.com/FellowTravell20",
+        ],
+        knowsAbout: [
+          "Web Development",
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Creative Coding",
+          "Interactive Fiction",
+          "Poetry",
+          "Python",
+          "Three.js",
+        ],
       },
     ],
   }
@@ -70,7 +48,7 @@ export function JsonLd() {
       id="json-ld"
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      strategy="afterInteractive"
+      strategy="beforeInteractive"
     />
   )
 }

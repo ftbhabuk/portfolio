@@ -77,7 +77,7 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
             className="max-w-xl font-mono text-sm text-foreground-secondary/80 md:text-base"
           >
             <TypewriterText 
-              text="Building experiments in code. Sometimes they work."
+              text="Building experiments in code. "
               // sometimes it work sometimes I dont.
               delay={1}
             />
@@ -197,7 +197,7 @@ function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
         setDisplayText(prev => prev + text[currentIndex])
         setCurrentIndex(prev => prev + 1)
       }
-    }, delay + currentIndex * 30)
+    }, delay + currentIndex * 9)
 
     return () => clearTimeout(timeout)
   }, [currentIndex, text, delay])

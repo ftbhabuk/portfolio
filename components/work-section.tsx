@@ -161,9 +161,9 @@ export function WorkSection() {
           >
             Process List
           </h2>
-          <p className="font-mono text-xs text-foreground-secondary/50">
-            showing {projects.length} processes
-          </p>
+            <p className="font-mono text-xs text-foreground-secondary/50">
+              Some of my recent works
+            </p>
         </motion.div>
 
         {/* ASCII table header */}

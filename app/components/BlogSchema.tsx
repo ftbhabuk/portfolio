@@ -7,6 +7,7 @@ interface BlogSchemaProps {
 
 export function BlogSchema({ post }: BlogSchemaProps) {
   const url = `https://bhabukb.com.np/blog/${post.id}`
+  const image = post.image ? `https://bhabukb.com.np${post.image}` : "https://bhabukb.com.np/images/socials.png"
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -30,9 +31,7 @@ export function BlogSchema({ post }: BlogSchemaProps) {
       "@id": url
     },
     "url": url,
-    ...(post.image && {
-      "image": `https://bhabukb.com.np${post.image}`
-    }),
+    "image": image,
     "keywords": post.tags.join(", ")
   }
 

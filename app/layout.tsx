@@ -4,66 +4,73 @@ import "./globals.css"
 import { Analytics } from "@vercel/analytics/react"
 import { Suspense } from "react"
 import { GeistPixelSquare } from "geist/font/pixel"
+import { JsonLd } from "@/app/json-ld"
 
-// Current timestamp to force cache refresh
-const timestamp = new Date().getTime()
+const siteUrl = "https://bhabukb.com.np"
+const siteTitle = "Bhabuk Bhattarai | Developer, Writer & Creative Technologist"
+const siteDescription =
+  "Portfolio of Bhabuk Bhattarai, a developer and writer building web apps, interactive fiction, and creative coding experiments."
+const defaultOgImage = {
+  url: "/images/socials.png",
+  width: 1080,
+  height: 1080,
+  alt: "Bhabuk Bhattarai social preview",
+}
+const isPreviewDeployment = process.env.VERCEL_ENV === "preview"
 
 export const metadata: Metadata = {
-  title: "Bhabuk",
-  description:
-    "CS student and full stack developer building AI poetry generators, interactive novels, and generative art with React, Next.js, Python, and Three.js.",
-  metadataBase: new URL("https://bhabukb.com.np"),
+  title: {
+    default: siteTitle,
+    template: "%s | Bhabuk Bhattarai",
+  },
+  description: siteDescription,
+  metadataBase: new URL(siteUrl),
+  applicationName: "Bhabuk Bhattarai",
   keywords: [
     "Bhabuk Bhattarai",
+    "Developer",
+    "Writer",
+    "Creative Technologist",
     "Full Stack Developer",
     "Nepal Developer",
-    "AI Poetry",
     "Next.js",
     "React",
     "Creative Coding",
-    "Generative Art",
+    "Interactive Fiction",
     "Web Developer Nepal",
-    "Three.js",
-    "Python Developer",
   ],
+  alternates: {
+    canonical: "/",
+  },
   verification: {
     google: "u8WvXEA5snMQbMygIHo4z7CYHEapFfBXsTC",
   },
-  authors: [{ name: "Bhabuk Bhattarai", url: "https://bhabukb.com.np" }],
+  authors: [{ name: "Bhabuk Bhattarai", url: siteUrl }],
   creator: "Bhabuk Bhattarai",
   publisher: "Bhabuk Bhattarai",
   category: "Technology",
   openGraph: {
-    title: "Bhabuk Bhattarai | Web Developer & CS Student",
-    description:
-      "Computer Science student and web developer specializing in React, Next.js, and modern web technologies. Building innovative web experiences.",
-    url: "https://bhabukb.com.np",
-    siteName: "Bhabuk Bhattarai Portfolio",
-    images: [
-      {
-        url: `/images/og-image.png?v=${timestamp}`,
-        width: 1200,
-        height: 630,
-        alt: "Bhabuk Bhattarai - Web Developer & CS Student",
-      },
-    ],
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: "Bhabuk Bhattarai",
+    images: [defaultOgImage],
     locale: "en_US",
-    type: "profile", // Changed from "website" to "profile" for personal site
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bhabuk Bhattarai | Web Developer & CS Student",
-    description:
-      "CS student and web developer building with React, Next.js, and modern web technologies.",
-    images: [`/images/og-image.png?v=${timestamp}`],
+    title: siteTitle,
+    description: siteDescription,
+    images: [defaultOgImage.url],
     creator: "@FellowTravell20",
   },
   robots: {
-    index: true,
-    follow: true,
+    index: !isPreviewDeployment,
+    follow: !isPreviewDeployment,
     googleBot: {
-      index: true,
-      follow: true,
+      index: !isPreviewDeployment,
+      follow: !isPreviewDeployment,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
@@ -79,37 +86,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={GeistPixelSquare.variable}>
       <head>
-        {/* Force refresh of social media cache with timestamp */}
-        <meta property="og:image" content={`https://bhabuk.dev/images/og-image.png?v=${timestamp}`} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Bhabuk Bhattarai" />
-        <meta property="og:image:type" content="image/png" />
-
-        <meta name="twitter:image" content={`https://bhabuk.dev/images/og-image.png?v=${timestamp}`} />
-        <meta name="twitter:image:alt" content="Bhabuk Bhattarai" />
-        <meta name="twitter:card" content="summary_large_image" />
-
-        {/* LinkedIn specific */}
-        <meta property="og:image:secure_url" content={`https://bhabuk.dev/images/og-image.png?v=${timestamp}`} />
-
-        {/* Additional social media tags */}
-        <meta property="og:type" content="profile" />
-        <meta property="og:url" content="https://bhabuk.dev" />
-        <meta property="og:title" content="Bhabuk Bhattarai | CS Student & Writer" />
-        <meta
-          property="og:description"
-          content="Portfolio of Bhabuk Bhattarai - CS student exploring literature, poetry, and creative coding projects."
-        />
-        <meta property="og:site_name" content="Bhabuk Bhattarai" />
-
-        {/* Cache control for better refreshing */}
-        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-        <meta httpEquiv="Pragma" content="no-cache" />
-        <meta httpEquiv="Expires" content="0" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#ffffff" />
       </head>
       <body className="font-sans antialiased">
         <Suspense fallback={<div>Loading...</div>}>
+          <JsonLd />
           {children}
           <Analytics />
         </Suspense>

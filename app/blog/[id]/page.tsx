@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   }
 
   const url = `https://bhabukb.com.np/blog/${post.id}`
+  const imageUrl = post.image ? `https://bhabukb.com.np${post.image}` : "https://bhabukb.com.np/images/socials.png"
 
   return {
     title: post.title,
@@ -43,21 +44,19 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
       modifiedTime: post.date,
       authors: ["Bhabuk Bhattarai"],
       tags: post.tags,
-      ...(post.image && {
-        images: [{
-          url: `https://bhabukb.com.np${post.image}`,
+      images: [
+        {
+          url: imageUrl,
           alt: post.title,
-        }],
-      }),
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
       creator: "@FellowTravell20",
-      ...(post.image && {
-        images: [`https://bhabukb.com.np${post.image}`],
-      }),
+      images: [imageUrl],
     },
   }
 }

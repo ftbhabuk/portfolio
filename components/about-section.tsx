@@ -1,24 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
 
 export function AboutSection() {
-  const [displayText, setDisplayText] = useState("")
-  const fullText = `Bhabuk Bhattarai`
-  
-  useEffect(() => {
-    let currentIndex = 0
-    const interval = setInterval(() => {
-      if (currentIndex <= fullText.length) {
-        setDisplayText(fullText.slice(0, currentIndex))
-        currentIndex++
-      } else {
-        clearInterval(interval)
-      }
-    }, 30)
-    return () => clearInterval(interval)
-  }, [])
-
   return (
     <section id="about" className="flex min-h-screen items-center px-5 py-16 sm:px-8 sm:py-20 md:px-16 lg:px-24">
       <div className="max-w-4xl mx-auto w-full">
@@ -30,9 +13,7 @@ export function AboutSection() {
           className="flex items-center gap-2 text-foreground-secondary/60 text-sm font-mono mb-12"
         >
           <span className="text-green-500">➜</span>
-          <span>~/about</span>
-          <span className="text-foreground-secondary/40">$</span>
-          <span>cat about.txt</span>
+          <span>~/about_me</span>
         </motion.div>
 
         {/* Content */}
@@ -42,20 +23,6 @@ export function AboutSection() {
           transition={{ delay: 0.4 }}
           className="space-y-8 font-mono text-sm text-foreground-secondary/70 sm:space-y-10"
         >
-          {/* NAME */}
-          <div>
-            <div className="text-foreground text-lg mb-2">
-              {displayText}
-              <motion.span
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
-                className="inline-block w-2 h-4 bg-green-500 ml-1"
-              />
-            </div>
-            <div className="text-foreground-secondary/60">
-              Pokhara, Nepal
-            </div>
-          </div>
 
           {/* ABOUT */}
           <motion.div
@@ -65,7 +32,7 @@ export function AboutSection() {
             className="space-y-4 leading-relaxed"
           >
             <p>
-              I build things on the web. Some of them work, some don't. The ones that do
+              I build things on the web. Some of them work, some don&apos;t. The ones that do
               usually live somewhere between utility and art.
             </p>
             <p>
