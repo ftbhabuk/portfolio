@@ -11,9 +11,9 @@ const siteTitle = "Bhabuk Bhattarai | Developer, Writer & Creative Technologist"
 const siteDescription =
   "Portfolio of Bhabuk Bhattarai, a developer and writer building web apps, interactive fiction, and creative coding experiments."
 const defaultOgImage = {
-  url: "/images/socials.png",
-  width: 1080,
-  height: 1080,
+  url: "/images/Bhabuk-tw.png",
+  width: 1200,
+  height: 628,
   alt: "Bhabuk Bhattarai social preview",
 }
 const isPreviewDeployment = process.env.VERCEL_ENV === "preview"
