@@ -7,9 +7,9 @@ import { GeistPixelSquare } from "geist/font/pixel"
 import { JsonLd } from "@/app/json-ld"
 
 const siteUrl = "https://bhabukb.com.np"
-const siteTitle = "Bhabuk Bhattarai | Developer, Writer & Creative Technologist"
+const siteTitle = "Bhabuk Bhattarai | Developer, Writer"
 const siteDescription =
-  "Portfolio of Bhabuk Bhattarai, a developer and writer building web apps, interactive fiction, and creative coding experiments."
+  "Bhabuk Bhattarai,  developer and writer building web apps, interactive fiction, and creative coding experiments."
 const defaultOgImage = {
   url: "/images/Bhabuk-tw.png",
   width: 1200,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   verification: {
-    google: "u8WvXEA5snMQbMygIHo4z7CYHEapFfBXsTC",
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "u8WvXEA5snMQbMygIHo4z7CYHEapFfBXsTQXoBeQj9g",
   },
   authors: [{ name: "Bhabuk Bhattarai", url: siteUrl }],
   creator: "Bhabuk Bhattarai",
