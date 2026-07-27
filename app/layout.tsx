@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "u8WvXEA5snMQbMygIHo4z7CYHEapFfBXsTQXoBeQj9g",
+    google: "u8WvXEA5snMQbMygIHo4z7CYHEapFfBXsTQXoBeQj9g",
   },
   authors: [{ name: "Bhabuk Bhattarai", url: siteUrl }],
   creator: "Bhabuk Bhattarai",
