@@ -4,6 +4,7 @@ import {sixMonthsLinux} from "./six-months-linux"
 import {melodySkyPost} from "./transcript"
 import {berserkBonfire} from "./guts"
 // import {myLoveForMovies} from "./love-for-movies"
+import {alternateTimelineSpaceTravelWithoutSpacex} from "./alternate-timeline-sx"
 
 
 
@@ -19,7 +20,7 @@ export interface BlogPost {
   content: string
 }
 
-export const allBlogPosts: BlogPost[] = [berserkBonfire,sixMonthsLinux, melodySkyPost, ]
+export const allBlogPosts: BlogPost[] = [berserkBonfire,sixMonthsLinux, melodySkyPost, alternateTimelineSpaceTravelWithoutSpacex]
 
 export function getAllBlogPosts(): BlogPost[] {
   return allBlogPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

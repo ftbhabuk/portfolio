@@ -25,25 +25,32 @@ export function AboutSection() {
         >
 
           {/* ABOUT */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="space-y-4 leading-relaxed"
-          >
-            <p>
-              I build things on the web. Some of them work, some don&apos;t. The ones that do
-              usually live somewhere between utility and art.
-            </p>
-            <p>
-              I also write—poetry, stories, novels, the occasional rambling post. Sometimes the
-              code and the writing blur together. Interactive fiction, generative experiments,
-              things that feel alive.
-            </p>
-            <p>
-            (.-.) kiwi (.-.)
-            </p>
-          </motion.div>
+<motion.div
+  initial={{ opacity: 0, y: 10 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.6 }}
+  className="space-y-4 leading-relaxed"
+>
+  <p>
+    I build things on the web — mostly the kind that live somewhere between utility
+    and art. Some of it ships, some of it doesn&apos;t, and I&apos;ve made peace with
+    that ratio.
+  </p>
+  <p>
+    I also write: poetry, stories, the occasional novel attempt, and blog posts about
+    whatever&apos;s living in my head that week — Linux, anime, lately
+    into spaceflight. The code and the writing tend to blur together — interactive
+    fiction, generative experiments, things that feel a little more alive.
+  </p>
+  <p>
+  Outside a terminal, I&apos;m usually a few chapters into an unfinished book, a
+  John Mayer playlist running in the background, and staring at art longer than
+  normal.
+</p>
+  <p className="text-foreground-secondary/40 text-xs pt-2">
+    mood: (.-.) kiwi (.-.)
+  </p>
+</motion.div>
 
           {/* TECH STACK */}
           <motion.div

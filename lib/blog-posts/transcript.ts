@@ -5,7 +5,7 @@ export const melodySkyPost = {
     date: "December 21, 2024",
     category: "Transcript ",
     readTime: 5,
-    tags: ["music", "feelings", "personal",],
+    tags: ["music", "feelings", "interpretation",],
     // image: "/images/melody.png",
     // audioFile: "/audio.mp3",
     youtubeLink: "https://www.youtube.com/watch?v=LGSClSL4WG4",
