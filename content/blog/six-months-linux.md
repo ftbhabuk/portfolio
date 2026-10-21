@@ -140,9 +140,6 @@ I'm not going back to Windows. Not a chance.
 
 Sure, there are trade-offs. Arch updates occasionally break things. Icons disappear from Waybar. Bluetooth is still Bluetooth. But here's the thing: when something breaks on Linux, I can actually *fix* it. I understand what's happening under the hood. On Windows, I was just a passenger in my own computer.
 
-![Terminal Neofetch](/images/neofetch.png)
-*Six months in and still loving it*
-
 Linux gave me control back. My system works *for* me now, not against me. The learning curve was steep, but so is the payoff. The customization with Hyprland, the efficiency of the workflow, the feeling of actually owning my computer—it's all worth it.
 
 If you're on the fence about trying Linux, especially if you're frustrated with Windows, just do it. Maybe start with Ubuntu instead of jumping straight to Arch like I did. But give it a real shot.

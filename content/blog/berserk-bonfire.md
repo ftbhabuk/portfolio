@@ -29,10 +29,6 @@ Guts overhears from the shadows. Griffith drops the line that changes everything
 
 In that instant, Guts realizes he's been nothing but a tool. The strongest blade in Griffith's arsenal, sure—but still just a means to an end.
 
-![The Band of the Hawk during the bonfire of dreams scene](/)
-
-*The Band of the Hawk in their golden days—before it all burned.*
-
 
 
 He'd spent his entire life fighting for Griffith's kingdom. Born hanging from his mother's corpse, raised by mercenaries who abused him, swinging a sword bigger than himself since childhood. Survival was all he knew. Being useful to Griffith's ambition felt like belonging. Like purpose.
@@ -53,10 +49,6 @@ I had to pause the episode. That line wrecked me.
 How many years had I done the exact same? Feeding someone else's vision—bosses, projects, relationships—while my own ideas stayed cold and unlit. Telling myself proximity to their fire was enough.
 
 It's not.
-
-![The Band of the Hawk during the bonfire of dreams scene](/images/guts-casca.jpg)
-
-*guts and casca*
 
 ---
 ## The Irony of the Dragonslayer
