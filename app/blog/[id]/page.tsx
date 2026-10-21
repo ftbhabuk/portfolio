@@ -1,7 +1,14 @@
 import { notFound } from "next/navigation"
-import { getAllBlogPosts, getBlogPostById, getRelatedPosts } from "@/lib/blog-posts"
+import {
+  getAllBlogPostSummaries,
+  getAllBlogPosts,
+  getBlogPostById,
+  getRelatedPosts,
+} from "@/lib/blog-posts"
 import BlogPostClient from "./BlogPostClient"
 import { BlogSchema } from "@/app/components/BlogSchema"
+
+export const dynamicParams = false
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -40,8 +47,8 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
       description: post.excerpt,
       url: url,
       type: "article",
-      publishedTime: post.date,
-      modifiedTime: post.date,
+      publishedTime: post.dateISO,
+      modifiedTime: post.dateISO,
       authors: ["Bhabuk Bhattarai"],
       tags: post.tags,
       images: [
@@ -70,11 +77,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   const relatedPosts = getRelatedPosts(id, 2)
+  const allPosts = getAllBlogPostSummaries()
 
   return (
     <>
       <BlogSchema post={post} />
-      <BlogPostClient post={post} relatedPosts={relatedPosts} />
+      <BlogPostClient post={post} relatedPosts={relatedPosts} allPosts={allPosts} />
     </>
   )
 }

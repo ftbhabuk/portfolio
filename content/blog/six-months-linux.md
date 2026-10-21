@@ -1,13 +1,14 @@
-export const sixMonthsLinux = {
-    id: "six-months-linux",
-    title: "Six Months with Arch Linux: My Escape from Windows",
-    excerpt: "I finally did it. After years of dealing with Windows' nonsense, I jumped ship to Arch Linux. Here's what the last six months have been like—the good, the bad, and the configs that randomly break.",
-    date: "December 18, 2024",
-    category: "tech & truth",
-    readTime: 8,
-    tags: ["linux", "arch", "hyprland", "personal"],
-    image: "/images/linux.png",
-    content: `It's been six months since I made the switch, and honestly? I should've done this years ago.
+---
+title: "Six Months with Arch Linux: My Escape from Windows"
+excerpt: "I finally did it. After years of dealing with Windows' nonsense, I jumped ship to Arch Linux. Here's what the last six months have been like—the good, the bad, and the configs that randomly break."
+date: 2024-12-18
+category: "tech & truth"
+tags: ["linux", "arch", "hyprland", "personal"]
+readTime: 8
+image: "/images/linux.png"
+---
+
+It's been six months since I made the switch, and honestly? I should've done this years ago.
 
 I remember sitting there one evening, watching my Task Manager show absurd amounts of RAM being used while I literally had nothing open. Just Windows doing... Windows things. Background processes I never asked for, telemetry I couldn't fully disable, constant updates that reset my settings. It was exhausting.
 
@@ -154,5 +155,4 @@ The freedom is worth it.
 - [Arch Wiki](https://wiki.archlinux.org/) (saved my life multiple times)
 - [Project HyDE GitHub](https://github.com/HyDE-Project) (amazing Hyprland configs)
 - [Hyprland docs](https://wiki.hypr.land/) (essential reading)
-- [r/unixporn](https://www.reddit.com/r/unixporn/) (for inspiration)`
-};
+- [r/unixporn](https://www.reddit.com/r/unixporn/) (for inspiration)

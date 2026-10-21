@@ -14,8 +14,8 @@ export function BlogSchema({ post }: BlogSchemaProps) {
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.excerpt,
-    "datePublished": post.date,
-    "dateModified": post.date,
+    "datePublished": post.dateISO,
+    "dateModified": post.dateISO,
     "author": {
       "@type": "Person",
       "name": "Bhabuk Bhattarai",

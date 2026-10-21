@@ -126,10 +126,12 @@ Card.displayName = "Card"
 │   └── *.tsx              # Feature-specific components
 ├── lib/                   # Utilities and data
 │   ├── utils.ts           # cn() helper
-│   └── blog-posts/        # Blog post content
+│   ├── blog/              # Blog loader (server-only) + types
+│   └── blog-posts/        # Public barrel: re-exports blog loader/types
 ├── hooks/                 # Custom React hooks
 ├── public/                # Static assets
-└── content/               # Blog content (markdown)
+├── scripts/               # sync-assets.mjs (content/blog -> public/blog)
+└── content/blog/          # Markdown mirror of the Obsidian vault (generated)
 ```
 
 ---
@@ -161,20 +163,34 @@ export function CustomDialog({ ... }) {
 
 ### Blog Posts
 
-Add new blog posts in `lib/blog-posts/` as TypeScript modules exporting a `BlogPost` object:
+Content is **markdown, not TypeScript**. Notes live in the `blog/` folder of the Obsidian vault
+(`ftbhabuk/obsidian-vault`) and are mirrored into `content/blog/` by a GitHub Action. Never edit
+`content/blog/` by hand — it is overwritten on the next sync.
 
-```ts
-export const myPost = {
-  id: "my-post",
-  title: "My Post",
-  excerpt: "Brief description",
-  date: "2024-01-01",
-  category: "Technology",
-  readTime: 5,
-  tags: ["react", "typescript"],
-  content: "Full markdown content..."
-}
+`lib/blog/posts.ts` is server-only: it reads `content/blog/**/*.md` with `gray-matter`, validates
+frontmatter, computes `readTime`, formats dates and returns `BlogPost` objects. Client components
+must receive posts as props (see `app/page.tsx` and `app/blog/[id]/page.tsx`); importing the loader
+from a client component fails the build on purpose (`server-only`).
+
+Frontmatter:
+
+```yaml
+---
+title: My Post                   # optional if the note starts with "# My Post"
+excerpt: One line for cards/SEO  # optional, falls back to the first paragraph
+date: 2026-10-21                 # required, YYYY-MM-DD
+category: tech & truth           # optional, defaults to "blog"
+tags: [react, typescript]        # optional
+image: /images/hero.png          # optional hero image from public/images
+draft: true                      # optional, excluded from the build
+---
 ```
+
+- `content/blog/_drafts/` and files starting with `_` or named `README.md` are ignored.
+- Relative images (`![](attachments/x.png)`) are rewritten to `/blog/attachments/x.png`;
+  `scripts/sync-assets.mjs` copies non-markdown files to `public/blog/` before dev/build.
+- `react-markdown` is configured with `remark-gfm`, `remark-breaks` (so single newlines render
+  like Obsidian) and `rehype-raw`.
 
 ---
 
@@ -185,7 +201,7 @@ export const myPost = {
 - **UI**: Radix UI primitives, Lucide icons
 - **Animation**: Framer Motion
 - **Forms**: React Hook Form
-- **Markdown**: react-markdown, remark-gfm, rehype-highlight
+- **Markdown**: react-markdown, remark-gfm, remark-breaks, rehype-raw, gray-matter
 
 ---
 

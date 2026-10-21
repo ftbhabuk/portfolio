@@ -4,19 +4,18 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Calendar, Clock, ArrowRight } from "lucide-react"
-import type { BlogPost } from "@/lib/blog-posts"
+import type { BlogPost, BlogPostSummary } from "@/lib/blog-posts"
 import { MarkdownContent } from "@/components/markdown-content"
-import { getAllBlogPosts } from "@/lib/blog-posts"
 
 interface BlogPostClientProps {
   post: BlogPost
-  relatedPosts: BlogPost[]
+  relatedPosts: BlogPostSummary[]
+  allPosts: BlogPostSummary[]
 }
 
-export default function BlogPostClient({ post, relatedPosts }: BlogPostClientProps) {
-  const allPosts = getAllBlogPosts()
-  const recommendedPosts = relatedPosts.length > 0 
-    ? relatedPosts 
+export default function BlogPostClient({ post, relatedPosts, allPosts }: BlogPostClientProps) {
+  const recommendedPosts = relatedPosts.length > 0
+    ? relatedPosts
     : allPosts.filter((p) => p.id !== post.id).slice(0, 3)
 
   return (

@@ -1,84 +1,32 @@
-# Blog Posts
+# content/blog
 
-This directory contains all blog posts as individual Markdown files.
+**Generated mirror — do not edit these files here.**
 
-## How to Add a New Blog Post
+This directory is synced automatically from the `blog/` folder of the Obsidian vault
+(`ftbhabuk/obsidian-vault`) by `.github/workflows/publish-to-site.yml`. The next sync
+overwrites anything changed here.
 
-1. Create a new `.md` file in this directory (e.g., `my-new-post.md`)
-2. Add frontmatter at the top with the following fields:
+## How publishing works
 
-\`\`\`markdown
----
-id: my-new-post
-title: My Awesome Blog Post
-excerpt: A brief description of what this post is about
-date: January 20, 2025
-category: Projects
-readTime: 5
-tags: [tag1, tag2, tag3]
-image: /path-to-image.jpg
+1. Write or move a note into `blog/` in the Obsidian vault.
+2. Add frontmatter:
 
----
+   ```yaml
+   ---
+   title: My Post                   # optional if the note starts with "# My Post"
+   excerpt: One line for cards/SEO  # optional, falls back to the first paragraph
+   date: 2026-10-21                 # required, YYYY-MM-DD
+   category: tech & truth           # optional, defaults to "blog"
+   tags: [linux, arch]              # optional
+   image: /images/hero.png          # optional hero image (lives in public/images)
+   draft: true                      # optional, keeps the post out of the build
+   ---
+   ```
 
-Your markdown content goes here...
-\`\`\`
+3. Commit and sync in Obsidian (Obsidian Git hotkey).
+4. GitHub copies the note into this folder, Vercel rebuilds, post is live.
 
-## Supported Markdown Features
+Notes in `blog/_drafts/` are never synced. Images pasted into a note land in
+`blog/attachments/` and are served from `/blog/attachments/...` automatically.
 
-### Headings
-\`\`\`markdown
-# H1 Heading
-## H2 Heading
-### H3 Heading
-#### H4 Heading
-\`\`\`
-
-### Text Formatting
-- **Bold text** using `**bold**`
-- *Italic text* using `*italic*`
-- <mark>Highlighted text</mark> using `<mark>text</mark>`
-- `Inline code` using backticks
-
-### Lists
-\`\`\`markdown
-- Unordered list item
-- Another item
-
-1. Ordered list item
-2. Another item
-\`\`\`
-
-### Code Blocks
-\`\`\`javascript
-const example = "code block with syntax highlighting"
-\`\`\`
-
-### Blockquotes
-\`\`\`markdown
-> This is a blockquote
-\`\`\`
-
-### Tables
-\`\`\`markdown
-| Column 1 | Column 2 |
-|----------|----------|
-| Data 1   | Data 2   |
-\`\`\`
-
-### Links and Images
-\`\`\`markdown
-[Link text](https://example.com)
-![Alt text](/image.jpg)
-\`\`\`
-
-### Horizontal Rule
-\`\`\`markdown
----
-\`\`\`
-
-
-\`\`\`
-\`\`\`
-
-```typescriptreact file="lib/blog-data.ts" isDeleted="true"
-...deleted...
+To preview locally, copy a note into this folder and run `npm run dev`.

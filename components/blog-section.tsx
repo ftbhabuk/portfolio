@@ -2,13 +2,16 @@
 import { useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { getAllBlogPosts } from "@/lib/blog-posts"
+import type { BlogPostSummary } from "@/lib/blog-posts"
 
-export function BlogSection() {
-  const blogPosts = getAllBlogPosts()
+interface BlogSectionProps {
+  posts: BlogPostSummary[]
+}
+
+export function BlogSection({ posts }: BlogSectionProps) {
   const [showAll, setShowAll] = useState(false)
-  const displayedPosts = showAll ? blogPosts : blogPosts.slice(0, 3)
-  const hasMore = blogPosts.length > 3
+  const displayedPosts = showAll ? posts : posts.slice(0, 3)
+  const hasMore = posts.length > 3
 
   return (
     <section id="blog" className="min-h-screen px-5 py-16 sm:px-8 sm:py-20 md:px-16 lg:px-24">
@@ -103,7 +106,7 @@ export function BlogSection() {
               <span className="text-green-500">$</span>
               {showAll ? 'head -n 3 thoughts.log' : 'cat thoughts.log'}
               <span className="text-foreground-secondary/40">
-                ({showAll ? 'show less' : `+${blogPosts.length - 3} more`})
+                ({showAll ? 'show less' : `+${posts.length - 3} more`})
               </span>
             </button>
           </motion.div>

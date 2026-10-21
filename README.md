@@ -75,46 +75,45 @@ npm run lint
 │   └── *.tsx              # Feature sections (hero, work, blog, about, contact)
 ├── hooks/                 # Custom React hooks
 ├── lib/
-│   ├── blog-posts/        # Blog post content as TypeScript modules
+│   ├── blog/              # Markdown loader (server-only) + BlogPost types
+│   ├── blog-posts/        # Barrel re-export used across the app
 │   └── utils.ts           # cn() helper
-├── content/               # Legacy content directory
+├── scripts/               # sync-assets.mjs (content/blog → public/blog)
+├── content/blog/          # Markdown mirror of the Obsidian vault (generated)
 └── public/                # Static assets (images, resume, audio)
 ```
 
-## Adding a Blog Post
+## Writing and Publishing Blog Posts
 
-Blog posts live in `lib/blog-posts/` as TypeScript modules.
+Posts are written in **Obsidian** and deployed through git — there is no CMS and no code change per post.
 
-1. Create a new file, e.g. `lib/blog-posts/my-post.ts`:
+Notes live in the `blog/` folder of the Obsidian vault (`ftbhabuk/obsidian-vault`).
+A workflow in that repo mirrors `blog/` into `content/blog/` here whenever the vault is pushed,
+which triggers a Vercel deploy.
 
-```typescript
-export const myPost = {
-  id: "my-post",
-  title: "My Post Title",
-  excerpt: "A brief description of your post",
-  date: "2025-01-01",
-  category: "Technology",
-  readTime: 5,
-  tags: ["tag1", "tag2"],
-  content: `## Your markdown here
+1. Write or move a note into `blog/` in the vault.
+2. Give it frontmatter:
 
-Write your post using markdown. Code blocks are syntax-highlighted.
-`
-}
+```yaml
+---
+title: My Post Title             # optional if the note starts with "# My Post Title"
+excerpt: A brief description     # optional, falls back to the first paragraph
+date: 2026-10-21                 # required, YYYY-MM-DD
+category: Technology             # optional, defaults to "blog"
+tags: [tag1, tag2]               # optional
+image: /images/hero.jpg          # optional hero image from public/images
+draft: true                      # optional, keeps it out of the build
+---
 ```
 
-2. Register it in `lib/blog-posts/index.ts`:
+3. In Obsidian, run **Obsidian Git → Commit-and-sync** (bind it to a hotkey). That's the publish button.
+4. The vault workflow commits the mirror to this repo and Vercel rebuilds.
 
-```typescript
-import { myPost } from "./my-post"
+Notes in `blog/_drafts/` are never synced. Pasted images land in `blog/attachments/` and are served
+from `/blog/attachments/...`; `scripts/sync-assets.mjs` copies them into `public/blog/` before
+dev/build. `content/blog/` is generated — never edit it here.
 
-export const allBlogPosts: BlogPost[] = [
-  myPost,
-  // ...other posts
-]
-```
-
-The post will automatically appear on the home page and its `/blog/my-post` page, including OpenGraph metadata and related-post links.
+Adding a post should never require touching `lib/`, `app/` or `components/`.
 
 ## Deployment
 

@@ -1,15 +1,13 @@
-export const melodySkyPost = {
-    id: "what-she-felt-like",
-    title: "What She Felt Like: A Melody Without Words",
-    excerpt: "There are some songs that don't need lyrics. The melody does all the talking, or maybe it's the silence between the notes that speaks the loudest.",
-    date: "December 21, 2024",
-    category: "Transcript ",
-    readTime: 5,
-    tags: ["music", "feelings", "interpretation",],
-    // image: "/images/melody.png",
-    // audioFile: "/audio.mp3",
-    youtubeLink: "https://www.youtube.com/watch?v=LGSClSL4WG4",
-    content: `<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 2rem;">
+---
+title: "What She Felt Like: A Melody Without Words"
+excerpt: "There are some songs that don't need lyrics. The melody does all the talking, or maybe it's the silence between the notes that speaks the loudest."
+date: 2024-12-21
+category: "Transcript"
+tags: ["music", "feelings", "interpretation"]
+readTime: 5
+---
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 2rem;">
   <iframe 
     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
     src="https://www.youtube.com/embed/LGSClSL4WG4" 
@@ -76,5 +74,4 @@ I hate how cowardly I am.
 **Listen to the full track:**
 - [YouTube: Original Melody](https://www.youtube.com/watch?v=LGSClSL4WG4)
 
-*Its just my pure speculation of what the melody might be saying!!*`
-};
+*Its just my pure speculation of what the melody might be saying!!*

@@ -1,13 +1,14 @@
-export const berserkBonfire = {
-  id: "berserk-bonfire",
-  title: "The Bonfire I Never Lit: The Cost of Someone Else's Dream",
-  excerpt: "I came to Berserk for dark fantasy. What I found was a mirror showing me how long I'd been living as someone else's tool instead of lighting my own fire.",
-  date: "December 24, 2025",
-  category: "anime & life",
-  readTime: 14,
-  tags: ["berserk", "anime","philosophy", "guts", "griffith"],
-  image: "/images/berserk-main.jpg",
-  content: `The bonfire scene in Berserk wrecked me.
+---
+title: "The Bonfire I Never Lit: The Cost of Someone Else's Dream"
+excerpt: "I came to Berserk for dark fantasy. What I found was a mirror showing me how long I'd been living as someone else's tool instead of lighting my own fire."
+date: 2025-12-24
+category: "anime & life"
+tags: ["berserk", "anime", "philosophy", "guts", "griffith"]
+readTime: 14
+image: "/images/berserk-main.jpg"
+---
+
+The bonfire scene in Berserk wrecked me.
 
 Not the Eclipse. Not the body horror or betrayal everyone warns about. A conversation—Guts and Casca talking about soldiers with small dreams, people huddling around Griffith's massive fire because they're too scared to let their own sparks die.
 
@@ -116,7 +117,7 @@ The scariest part? Griffith never lies about his dream. He just doesn't mention 
 ![Griffith's dream—beautiful from afar, consuming up close.](https://wallpaperaccess.com/full/3678217.jpg)
 
   *Griffith's dream—beautiful from afar, consuming up close.*
-  
+
 ---
 ## After the Fire
 
@@ -140,5 +141,3 @@ But staying means letting your own potential die quietly, one borrowed ember at 
 I'm still learning to protect my flame. It's fragile. Some days it barely glows. But no one can take it from me unless I let them.
 
 And that's the difference.
-`
-};
