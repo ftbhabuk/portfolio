@@ -78,13 +78,36 @@ function toStringArray(value: unknown): string[] {
   return []
 }
 
-/** Turns body images with relative paths into URLs served from /public/blog. */
-function rewriteImagePaths(content: string): string {
-  return content.replace(/!\[([^\]]*)\]\(([^)\s]+)(\s+"[^"]*")?\)/g, (match, alt, target, title) => {
-    const isRelative = !/^(?:[a-z][a-z0-9+.-]*:|\/|#)/i.test(target)
-    if (!isRelative) return match
-    return `![${alt}](/blog/${target.replace(/^\.\//, "")}${title ?? ""})`
-  })
+/** True for paths that live in the vault rather than the web. */
+function isRelativeTarget(target: string): boolean {
+  return !/^(?:[a-z][a-z0-9+.-]*:|\/|#)/i.test(target)
+}
+
+function toPublicPath(target: string): string {
+  return `/blog/${target.replace(/^\.\//, "")}`
+}
+
+/** Rewrites relative media paths (markdown or HTML) to URLs served from /public/blog. */
+function rewriteMediaPaths(content: string): string {
+  const rewrite = (target: string) =>
+    isRelativeTarget(target) ? toPublicPath(target) : target
+
+  return (
+    content
+      // Markdown images: ![alt](target "title")
+      .replace(/!\[([^\]]*)\]\(([^)\s]+)(\s+"[^"]*")?\)/g, (match, alt, target, title) => {
+        const next = rewrite(target)
+        return next === target ? match : `![${alt}](${next}${title ?? ""})`
+      })
+      // HTML media: <img src>, <video src>, <source src>, <audio src>, <track src>
+      .replace(
+        /(<(?:img|video|audio|source|track)\b[^>]*?\bsrc=")([^"]+)(")/gi,
+        (match, before, src, after) => {
+          const next = rewrite(src)
+          return next === src ? match : `${before}${next}${after}`
+        },
+      )
+  )
 }
 
 function fallbackExcerpt(content: string): string {
@@ -142,7 +165,7 @@ function readPost(file: string): BlogPost | null {
     readTime,
     tags: toStringArray(data.tags),
     image: typeof data.image === "string" && data.image.trim() ? data.image.trim() : undefined,
-    content: rewriteImagePaths(content),
+    content: rewriteMediaPaths(content),
   }
 }
 
