@@ -35,7 +35,7 @@ export default function BlogPostClient({ post, relatedPosts, allPosts }: BlogPos
             </Link>
           </li>
           <li aria-hidden="true" className="text-foreground-secondary/30">▸</li>
-          <li aria-current="page" className="text-foreground-secondary/80">
+          <li aria-current="page" className="font-semibold text-foreground-secondary/80">
             {post.title}
           </li>
         </ol>
@@ -70,7 +70,7 @@ export default function BlogPostClient({ post, relatedPosts, allPosts }: BlogPos
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center gap-4 text-sm text-foreground-secondary"
+          className="flex items-center gap-4 text-sm text-green-500/80"
         >
           <span className="flex items-center gap-1.5">
             <Calendar className="w-4 h-4" />
