@@ -15,23 +15,23 @@ export function AsciiHeader() {
         <Link
           href="/"
           aria-label="Go to homepage"
-          className="group block w-full max-w-[200px] transition-opacity hover:opacity-90"
+          className="group block w-full max-w-[300px] transition-opacity hover:opacity-90"
         >
           <Image
-            src="/images/ascii-portrait-dark.webp"
-            alt="Pixel-art portrait of an anime girl"
-            width={1178}
-            height={980}
+            src="/images/ascii-glasses-dark.webp"
+            alt="Pixel-art portrait of an anime girl with glasses"
+            width={1200}
+            height={737}
             priority
             unoptimized
             className="block h-auto w-full light:hidden"
           />
           <Image
-            src="/images/ascii-portrait-light.webp"
+            src="/images/ascii-glasses-light.webp"
             alt=""
             aria-hidden="true"
-            width={1178}
-            height={980}
+            width={1200}
+            height={737}
             priority
             unoptimized
             className="hidden h-auto w-full light:block"
