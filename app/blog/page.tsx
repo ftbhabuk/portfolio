@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 
 import { BlogPostList } from "@/components/blog-post-list"
+import { Footer } from "@/components/footer"
 import { SiteShell } from "@/components/site-shell"
 import { getAllBlogPostSummaries } from "@/lib/blog-posts"
 
@@ -36,6 +37,7 @@ export default function BlogPage() {
 
         <BlogPostList posts={posts} />
       </div>
+      <Footer />
     </SiteShell>
   )
 }

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 
 import { AsciiHeader } from "@/components/ascii-header"
+import { Footer } from "@/components/footer"
 import { SiteShell } from "@/components/site-shell"
 import {
   getAllBlogPostSummaries,
@@ -89,6 +90,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
       <BlogSchema post={post} />
       <BlogPostClient post={post} relatedPosts={relatedPosts} allPosts={allPosts} />
+      <Footer />
     </SiteShell>
   )
 }

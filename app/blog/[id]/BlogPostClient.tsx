@@ -70,13 +70,13 @@ export default function BlogPostClient({ post, relatedPosts, allPosts }: BlogPos
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center gap-4 text-sm text-foreground-secondary/70"
+          className="flex items-center gap-4 text-sm text-foreground-secondary"
         >
           <span className="flex items-center gap-1.5">
             <Calendar className="w-4 h-4" />
             {post.date}
           </span>
-          <span className="text-foreground-secondary/40">•</span>
+          <span className="text-foreground-secondary/60">•</span>
           <span className="flex items-center gap-1.5">
             <Clock className="w-4 h-4" />
             {post.readTime} min read
