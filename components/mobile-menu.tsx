@@ -6,6 +6,7 @@ import Link from "next/link"
 import { ThemeToggle } from "@/components/theme-toggle"
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -38,7 +39,7 @@ export function MobileMenu({
         <SheetTrigger asChild>
           <button
             type="button"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-foreground/5 text-foreground transition-colors hover:bg-foreground/10"
+            className="flex h-9 w-9 items-center justify-center rounded-sm border border-foreground/10 bg-foreground/5 text-foreground-secondary transition-colors hover:border-green-500/40 hover:text-green-500"
             aria-label="Open navigation menu"
           >
             <Menu className="h-4 w-4" />
@@ -46,29 +47,61 @@ export function MobileMenu({
         </SheetTrigger>
         <SheetContent
           side="right"
-          className="w-[85vw] max-w-xs border-l border-foreground/10 bg-background px-5 py-6"
+          className="w-[82vw] max-w-[320px] border-l border-foreground/15 bg-background p-0 [&>button]:hidden"
         >
-          <SheetHeader className="space-y-1 text-left">
-            <SheetTitle className="font-mono text-sm uppercase tracking-[0.28em] text-foreground-secondary">
-              Navigate
-            </SheetTitle>
-          </SheetHeader>
-          <nav className="mt-8 flex flex-col gap-3 font-mono">
-            {sections.map((section) => (
-              <Link
-                key={section.id}
-                href={section.href}
-                className={`rounded-md border px-4 py-3 text-sm uppercase tracking-[0.22em] transition-colors ${
-                  isActive(section)
-                    ? "border-green-500/40 bg-green-500/10 text-green-500"
-                    : "border-foreground/10 text-foreground-secondary hover:border-foreground/20 hover:text-foreground"
-                }`}
-                onClick={() => onOpenChange(false)}
-              >
-                {section.label}
-              </Link>
-            ))}
-          </nav>
+          <div className="flex h-full flex-col font-mono">
+            <div className="flex items-center justify-between border-b border-foreground/10 px-5 py-4 text-sm">
+              <div className="flex items-center gap-2">
+                <span className="text-green-500">➜</span>
+                <span className="text-foreground-secondary/70">~/bhabuk</span>
+                <span className="text-foreground-secondary/30">$</span>
+              </div>
+              <SheetClose className="text-xs text-foreground-secondary/40 transition-colors hover:text-green-500">
+                [esc]
+              </SheetClose>
+            </div>
+
+            <SheetHeader className="sr-only">
+              <SheetTitle>Navigate</SheetTitle>
+            </SheetHeader>
+
+            <nav className="flex-1 px-5 py-6">
+              <div className="mb-4 text-[10px] uppercase tracking-[0.28em] text-foreground-secondary/40">
+                available sections
+              </div>
+              <ul className="border-t border-foreground/10">
+                {sections.map((section, index) => {
+                  const active = isActive(section)
+                  return (
+                    <li key={section.id} className="border-b border-foreground/10">
+                      <Link
+                        href={section.href}
+                        onClick={() => onOpenChange(false)}
+                        className={`group flex items-center gap-3 py-3.5 text-sm transition-colors ${
+                          active ? "text-green-500" : "text-foreground-secondary/80 hover:text-green-500"
+                        }`}
+                      >
+                        <span className="w-4 text-[10px] text-foreground-secondary/30">
+                          0{index + 1}
+                        </span>
+                        <span className="text-green-500/50">$</span>
+                        <span className="flex-1">
+                          cd {section.label === "home" ? "~" : section.label}
+                        </span>
+                        <span className={`text-xs ${active ? "text-green-500" : "text-foreground-secondary/30 group-hover:text-green-500/60"}`}>
+                          {active ? "●" : "→"}
+                        </span>
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </nav>
+
+            <div className="border-t border-foreground/10 px-5 py-4 text-[10px] text-foreground-secondary/40">
+              <span className="text-green-500">$</span> press esc to close
+            </div>
+          </div>
         </SheetContent>
       </Sheet>
     </div>
