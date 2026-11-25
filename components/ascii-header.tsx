@@ -39,6 +39,8 @@ export function AsciiHeader() {
         </Link>
       </div>
 
+      <div className="mt-5 w-full border-t border-foreground/10 sm:mt-6" />
+
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}

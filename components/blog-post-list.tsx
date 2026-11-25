@@ -19,7 +19,7 @@ export function BlogPostList({ posts }: BlogPostListProps) {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-4">
               <time
                 dateTime={post.dateISO}
-                className="w-full flex-shrink-0 font-mono text-xs text-foreground-secondary/50 sm:w-28 sm:pt-1"
+                className="w-full flex-shrink-0 font-mono text-xs text-foreground-secondary sm:w-28 sm:pt-1"
               >
                 [{post.date}]
               </time>
