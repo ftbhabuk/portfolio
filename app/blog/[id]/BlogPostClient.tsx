@@ -21,8 +21,8 @@ export default function BlogPostClient({ post, relatedPosts, allPosts }: BlogPos
   return (
     <div className="min-h-screen bg-background">
       {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" className="max-w-4xl mx-auto px-6 md:px-8 pt-8 md:pt-12 pb-4">
-        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs text-foreground-secondary/50">
+      <nav aria-label="Breadcrumb" className="max-w-4xl mx-auto px-6 md:px-8 pt-4 md:pt-6 pb-2">
+        <ol className="flex flex-wrap items-center gap-x-1 gap-y-0.5 font-mono text-xs text-foreground-secondary/50">
           <li>
             <Link href="/" className="transition-colors hover:text-green-500">
               Home
