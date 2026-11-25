@@ -2,6 +2,8 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 
+import { AsciiHeader } from "@/components/ascii-header"
+
 export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "projects" | "writings" | "contact" | "about") => void } = {}) {
   const [glitchActive, setGlitchActive] = useState(false)
   
@@ -16,19 +18,10 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
   }, [])
 
   return (
-    <section id="hero" className="relative flex min-h-[calc(100vh-4rem)] items-center justify-start overflow-hidden bg-background px-0 py-16 sm:min-h-screen sm:py-20">
-      {/* Pixel noise overlay */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-        <div 
-          className="w-full h-full"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' /%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-          }}
-        />
-      </div>
+    <section id="hero" className="relative flex min-h-[calc(100vh-4rem)] items-start justify-start overflow-hidden bg-background pb-16 pt-6 sm:min-h-screen sm:pb-20 sm:pt-8">
+      <div className="w-full">
+        <AsciiHeader />
 
-      <div className="w-full max-w-6xl px-5 sm:px-8 md:px-16 lg:pl-24">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -59,7 +52,7 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
             className="relative"
           >
             <h1 
-              className={`max-w-[11ch] text-3xl leading-tight sm:max-w-none sm:text-5xl md:text-6xl lg:text-7xl tracking-wider uppercase ${
+              className={`max-w-[11ch] text-2xl leading-tight sm:max-w-none sm:text-3xl md:text-4xl lg:text-5xl tracking-wider uppercase ${
                 glitchActive ? 'glitch' : ''
               }`}
               style={{ fontFamily: 'var(--font-geist-pixel-square), monospace' }}
@@ -76,9 +69,8 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
             transition={{ delay: 0.8, duration: 0.6 }}
             className="max-w-xl font-mono text-sm text-foreground-secondary/80 md:text-base"
           >
-            <TypewriterText 
-              text="Building experiments in code. "
-              // sometimes it work sometimes I dont.
+            <TypewriterText
+              text="I build for the web and write about what I learn along the way."
               delay={1}
             />
           </motion.div>
@@ -87,8 +79,8 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.5 }}
-            className="flex flex-wrap gap-3 pt-6 font-mono text-sm sm:gap-4"
+            transition={{ delay: 1.2, duration: 0.5 }}
+            className="flex flex-wrap gap-3 font-mono text-sm sm:gap-4"
           >
             <a
               href="#work"

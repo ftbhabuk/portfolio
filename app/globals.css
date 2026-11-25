@@ -395,6 +395,11 @@ section {
   isolation: isolate;
 }
 
+/* Article body copy — the typography plugin's default muted body was too faint in dark mode */
+.prose p {
+  color: color-mix(in srgb, var(--foreground) 90%, transparent);
+}
+
 /* Blog post fade-in animation */
 @keyframes fadeIn {
   from {

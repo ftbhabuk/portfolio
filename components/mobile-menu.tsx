@@ -1,6 +1,7 @@
 "use client"
 
 import { Menu } from "lucide-react"
+import Link from "next/link"
 
 import { ThemeToggle } from "@/components/theme-toggle"
 import {
@@ -14,17 +15,18 @@ import {
 export interface MobileMenuSection {
   id: string
   label: string
+  href: string
 }
 
 interface MobileMenuProps {
-  activeSection: string
+  isActive: (section: MobileMenuSection) => boolean
   isOpen: boolean
   onOpenChange: (open: boolean) => void
   sections: readonly MobileMenuSection[]
 }
 
 export function MobileMenu({
-  activeSection,
+  isActive,
   isOpen,
   onOpenChange,
   sections,
@@ -53,18 +55,18 @@ export function MobileMenu({
           </SheetHeader>
           <nav className="mt-8 flex flex-col gap-3 font-mono">
             {sections.map((section) => (
-              <a
+              <Link
                 key={section.id}
-                href={`#${section.id}`}
+                href={section.href}
                 className={`rounded-md border px-4 py-3 text-sm uppercase tracking-[0.22em] transition-colors ${
-                  activeSection === section.id
+                  isActive(section)
                     ? "border-green-500/40 bg-green-500/10 text-green-500"
                     : "border-foreground/10 text-foreground-secondary hover:border-foreground/20 hover:text-foreground"
                 }`}
                 onClick={() => onOpenChange(false)}
               >
                 {section.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </SheetContent>

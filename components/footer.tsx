@@ -9,7 +9,7 @@ export function Footer() {
       viewport={{ once: true }}
       className="mt-16 border-t border-foreground/10 py-4 sm:mt-20"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 md:px-16 lg:px-24">
+      <div className="w-full">
         <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-center font-mono text-xs">
           <span className="text-green-500">GitHub:</span>
           <a

@@ -141,26 +141,20 @@ export function WorkSection() {
   }
 
   return (
-    <section id="work" className="min-h-screen px-5 py-16 sm:px-8 sm:py-20 md:px-16 lg:px-24">
-      <div className="max-w-6xl mx-auto">
+    <section id="work" className="min-h-screen py-16 sm:py-20">
+      <div className="w-full">
         {/* Terminal header */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-12"
+          className="mb-8"
         >
           <div className="flex items-center gap-2 text-foreground-secondary/60 text-sm font-mono mb-2">
             <span className="text-green-500">➜</span>
             <span>~/projects</span>
           </div>
-          <h2
-            className="text-2xl md:text-3xl tracking-wider uppercase mb-2"
-            style={{ fontFamily: 'var(--font-geist-pixel-square), monospace' }}
-          >
-            Process List
-          </h2>
             <p className="font-mono text-xs text-foreground-secondary/50">
               Some of my recent works
             </p>

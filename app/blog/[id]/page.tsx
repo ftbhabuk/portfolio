@@ -1,4 +1,7 @@
 import { notFound } from "next/navigation"
+
+import { AsciiHeader } from "@/components/ascii-header"
+import { SiteShell } from "@/components/site-shell"
 import {
   getAllBlogPostSummaries,
   getAllBlogPosts,
@@ -80,9 +83,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const allPosts = getAllBlogPostSummaries()
 
   return (
-    <>
+    <SiteShell>
+      <div className="pt-6 sm:pt-8">
+        <AsciiHeader />
+      </div>
       <BlogSchema post={post} />
       <BlogPostClient post={post} relatedPosts={relatedPosts} allPosts={allPosts} />
-    </>
+    </SiteShell>
   )
 }

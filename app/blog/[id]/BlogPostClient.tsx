@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Calendar, Clock, ArrowRight } from "lucide-react"
+import { Calendar, Clock } from "lucide-react"
 import type { BlogPost, BlogPostSummary } from "@/lib/blog-posts"
 import { MarkdownContent } from "@/components/markdown-content"
 
@@ -19,25 +19,30 @@ export default function BlogPostClient({ post, relatedPosts, allPosts }: BlogPos
     : allPosts.filter((p) => p.id !== post.id).slice(0, 3)
 
   return (
-    <main className="min-h-screen bg-background">
-      {/* Back link - Simplified */}
-      <div className="max-w-4xl mx-auto px-6 md:px-8 pt-8 md:pt-12 pb-4">
-        <Link
-          href="/#blog"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
-        >
-          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-          Back to blog
-        </Link>
-      </div>
+    <div className="min-h-screen bg-background">
+      {/* Breadcrumb */}
+      <nav aria-label="Breadcrumb" className="max-w-4xl mx-auto px-6 md:px-8 pt-8 md:pt-12 pb-4">
+        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs text-foreground-secondary/50">
+          <li>
+            <Link href="/" className="transition-colors hover:text-green-500">
+              Home
+            </Link>
+          </li>
+          <li aria-hidden="true" className="text-foreground-secondary/30">▸</li>
+          <li>
+            <Link href="/blog" className="transition-colors hover:text-green-500">
+              Blog
+            </Link>
+          </li>
+          <li aria-hidden="true" className="text-foreground-secondary/30">▸</li>
+          <li aria-current="page" className="text-foreground-secondary/80">
+            {post.title}
+          </li>
+        </ol>
+      </nav>
 
       {/* Article header - Better hierarchy */}
       <header className="max-w-4xl mx-auto px-6 md:px-8 pt-6 pb-8 md:pb-12">
-        {/* Category badge */}
-        <Badge variant="secondary" className="mb-4 font-normal text-xs">
-          {post.category}
-        </Badge>
-
         {/* Title - Elegant and readable */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -54,7 +59,7 @@ export default function BlogPostClient({ post, relatedPosts, allPosts }: BlogPos
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg md:text-x text-muted-foreground leading-relaxed mb-6 max-w-4xl"
+            className="text-lg text-foreground-secondary/80 leading-relaxed mb-6 max-w-4xl"
           >
             {post.excerpt}
           </motion.p>
@@ -65,13 +70,13 @@ export default function BlogPostClient({ post, relatedPosts, allPosts }: BlogPos
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center gap-4 text-sm text-muted-foreground"
+          className="flex items-center gap-4 text-sm text-foreground-secondary/70"
         >
           <span className="flex items-center gap-1.5">
             <Calendar className="w-4 h-4" />
             {post.date}
           </span>
-          <span className="text-muted-foreground/50">•</span>
+          <span className="text-foreground-secondary/40">•</span>
           <span className="flex items-center gap-1.5">
             <Clock className="w-4 h-4" />
             {post.readTime} min read
@@ -156,65 +161,43 @@ export default function BlogPostClient({ post, relatedPosts, allPosts }: BlogPos
         </div>
       )}
 
-      {/* Related posts - Simple and elegant list */}
-      <section className="border-t border-border/40">
-        <div className="max-w-3xl mx-auto px-6 md:px-8 py-16 md:py-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-2xl md:text-3xl font-bold mb-10"
-          >
+      {/* Related posts — same quiet list style as the rest of the site */}
+      <section className="border-t border-foreground/10">
+        <div className="max-w-3xl mx-auto px-6 md:px-8 py-12 md:py-16">
+          <div className="mb-5 font-mono text-xs uppercase tracking-[0.28em] text-foreground-secondary/50">
             {relatedPosts.length > 0 ? "Related Posts" : "More to Explore"}
-          </motion.h2>
+          </div>
 
-          <div className="space-y-6">
-            {recommendedPosts.map((recommendedPost, index) => (
-              <motion.div
-                key={recommendedPost.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
+          <ul className="border-y border-foreground/10">
+            {recommendedPosts.map((recommendedPost) => (
+              <li key={recommendedPost.id} className="border-b border-foreground/5 last:border-b-0">
                 <Link
                   href={`/blog/${recommendedPost.id}`}
-                  className="group block py-5 border-b border-border/30 last:border-0"
+                  className="group flex items-baseline justify-between gap-5 py-3.5 font-mono text-sm transition-colors hover:text-green-500"
                 >
-                  <div className="flex items-start justify-between gap-6">
-                    <div className="flex-1">
-                      <h3 className="text-lg md:text-xl font-semibold group-hover:text-primary transition-colors mb-2">
-                        {recommendedPost.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-muted-foreground line-clamp-2 mb-3">
-                        {recommendedPost.excerpt}
-                      </p>
-                      <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                        <span>{recommendedPost.date}</span>
-                        <span>•</span>
-                        <span>{recommendedPost.category}</span>
-                        <span>•</span>
-                        <span>{recommendedPost.readTime} min read</span>
-                      </div>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all mt-1 flex-shrink-0" />
-                  </div>
+                  <span className="min-w-0 truncate text-foreground transition-colors group-hover:text-green-500">
+                    {recommendedPost.title}
+                  </span>
+                  <time
+                    dateTime={recommendedPost.dateISO}
+                    className="shrink-0 text-xs text-foreground-secondary/40"
+                  >
+                    [{recommendedPost.date}]
+                  </time>
                 </Link>
-              </motion.div>
+              </li>
             ))}
-          </div>
+          </ul>
 
-          <div className="mt-12 pt-8 border-t border-border/30">
-            <Link
-              href="/#blog"
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all"
-            >
-              View all posts
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+          <Link
+            href="/blog"
+            className="mt-5 inline-flex items-center gap-2 font-mono text-xs text-green-500/80 transition-colors hover:text-green-500"
+          >
+            <span>$</span>
+            <span className="underline-offset-4 hover:underline">cat all posts →</span>
+          </Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }
