@@ -30,9 +30,6 @@ export default function BlogPage() {
           >
             Log Entries
           </h1>
-          <p className="font-mono text-xs text-foreground-secondary/50">
-            tail -f thoughts.log
-          </p>
         </header>
 
         <BlogPostList posts={posts} />

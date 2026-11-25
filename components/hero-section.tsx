@@ -75,42 +75,6 @@ export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "proj
             />
           </motion.div>
 
-          {/* Command-style links */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.5 }}
-            className="flex flex-wrap gap-3 font-mono text-sm sm:gap-4"
-          >
-            <a
-              href="#work"
-              className="group flex items-center gap-2 text-foreground-secondary/60 transition-colors hover:text-foreground"
-            >
-              <span className="text-green-500">$</span>
-              <span className="group-hover:underline underline-offset-4">ls projects</span>
-            </a>
-
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-foreground-secondary/60 transition-colors hover:text-foreground"
-            >
-              <span className="text-green-500">$</span>
-              <span className="group-hover:underline underline-offset-4">cat resume.pdf</span>
-            </a>
-
-            <a
-              href="https://github.com/ftbhabuk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-foreground-secondary/60 transition-colors hover:text-foreground"
-            >
-              <span className="text-green-500">$</span>
-              <span className="group-hover:underline underline-offset-4">curl github →</span>
-            </a>
-          </motion.div>
-
           {/* Pixel grid decoration */}
           <motion.div
             initial={{ scaleX: 0 }}
