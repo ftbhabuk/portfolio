@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 
+import { AsciiHeader } from "@/components/ascii-header"
 import { BlogPostList } from "@/components/blog-post-list"
 import { Footer } from "@/components/footer"
 import { SiteShell } from "@/components/site-shell"
@@ -18,7 +19,10 @@ export default function BlogPage() {
 
   return (
     <SiteShell>
-      <div className="py-16 sm:py-20">
+      <div className="pt-6 sm:pt-8">
+        <AsciiHeader />
+      </div>
+      <div className="py-8 sm:py-10">
         <header className="mb-8">
           <div className="mb-2 flex items-center gap-2 font-mono text-sm text-foreground-secondary/60">
             <span className="text-green-500">➜</span>
