@@ -15,7 +15,7 @@ export function AsciiHeader() {
         <Link
           href="/"
           aria-label="Go to homepage"
-          className="group block w-full max-w-[300px] transition-opacity hover:opacity-90"
+          className="group block w-full transition-opacity hover:opacity-90"
         >
           <Image
             src="/images/ascii-glasses-dark.webp"
