@@ -6,11 +6,11 @@ category: about
 tags: [about, meta]
 ---
 
-I build things on the web — mostly the kind that live somewhere between utility and art. Some of it ships, some of it doesn't, and I've made peace with that ratio.
+I build things on the web — mostly the kind that live somewhere between utility and art. Some of it ships, some of it doesn't, and I've made peace with that ratio. I'm more of a terminal person than a social one: too online, mostly on X, and quiet everywhere else.
 
-I also write: poetry, stories, the occasional novel attempt, and notes about whatever's living in my head that week — Linux, anime, lately spaceflight. The code and the writing tend to blur together: interactive fiction, generative experiments, things that feel a little more alive.
+I write poems and half-finished novels, and I keep notes about whatever's living in my head that week — Linux, anime, lately spaceflight. The code and the writing tend to blur together: interactive fiction, generative experiments, things that feel a little more alive.
 
-Outside a terminal, I'm usually a few chapters into an unfinished book, a John Mayer playlist running in the background, and staring at art longer than normal.
+Outside of work, I'm usually a few chapters into an unfinished book, a John Mayer playlist running in the background, and staring at art longer than normal. I'm a sucker for anime, soft art, and the kind of beauty that makes you stop scrolling.
 
 ## What I work with
 

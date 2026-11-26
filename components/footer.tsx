@@ -34,10 +34,11 @@ export function Footer() {
           <span className="text-green-500">Email:</span>
           <a
             href="mailto:ftraveller23@proton.me"
-            className="text-foreground-secondary hover:underline"
+            className="max-w-full break-all text-foreground-secondary hover:underline"
           >
             ftraveller23[at]proton(dot)me
           </a>
+
         </div>
       </div>
     </motion.footer>

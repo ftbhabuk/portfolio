@@ -189,13 +189,6 @@ export default function BlogPostClient({ post, relatedPosts, allPosts }: BlogPos
             ))}
           </ul>
 
-          <Link
-            href="/blog"
-            className="mt-5 inline-flex items-center gap-2 font-mono text-xs text-green-500/80 transition-colors hover:text-green-500"
-          >
-            <span>$</span>
-            <span className="underline-offset-4 hover:underline">cat all posts →</span>
-          </Link>
         </div>
       </section>
     </div>

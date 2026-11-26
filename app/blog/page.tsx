@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 
 import { AsciiHeader } from "@/components/ascii-header"
 import { BlogPostList } from "@/components/blog-post-list"
@@ -24,15 +25,24 @@ export default function BlogPage() {
       </div>
       <div className="py-8 sm:py-10">
         <header className="mb-8">
-          <div className="mb-2 flex items-center gap-2 font-mono text-sm text-foreground-secondary/60">
-            <span className="text-green-500">➜</span>
-            <span>~/writings</span>
-          </div>
+          <nav aria-label="Breadcrumb" className="mb-2">
+            <ol className="flex items-center gap-x-1 font-mono text-xs text-foreground-secondary/50">
+              <li>
+                <Link href="/" className="transition-colors hover:text-green-500">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true" className="text-foreground-secondary/30">▸</li>
+              <li aria-current="page" className="font-semibold text-foreground-secondary/80">
+                Blog
+              </li>
+            </ol>
+          </nav>
           <h1
             className="mb-1 text-lg uppercase tracking-wider md:text-xl"
             style={{ fontFamily: "var(--font-geist-pixel-square), monospace" }}
           >
-            Log Entries
+            Recent Posts
           </h1>
         </header>
 

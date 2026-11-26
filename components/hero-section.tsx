@@ -1,173 +1,60 @@
 "use client"
+
+import Image from "next/image"
+import Link from "next/link"
 import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
 
 import { AsciiHeader } from "@/components/ascii-header"
 
-export function HeroSection({ onNavigate }: { onNavigate?: (view: "hero" | "projects" | "writings" | "contact" | "about") => void } = {}) {
-  const [glitchActive, setGlitchActive] = useState(false)
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (Math.random() > 0.85) {
-        setGlitchActive(true)
-        setTimeout(() => setGlitchActive(false), 120)
-      }
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-
+export function HeroSection() {
   return (
-    <section id="hero" className="relative flex min-h-[calc(100vh-4rem)] items-start justify-start overflow-hidden bg-background pb-16 pt-6 sm:min-h-screen sm:pb-20 sm:pt-8">
+    <section
+      id="hero"
+      className="relative flex min-h-[calc(100vh-4rem)] items-start justify-start overflow-hidden pb-16 sm:min-h-screen sm:pb-20"
+    >
       <div className="w-full">
         <AsciiHeader />
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-6"
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {/* Terminal-style prompt */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="flex items-center gap-2 text-foreground-secondary/60 text-sm font-mono"
-          >
-            <span className="text-green-500">➜</span>
-            <span>~/bhabuk</span>
-            <motion.span
-              animate={{ opacity: [1, 0] }}
-              transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-              className="inline-block w-2 h-4 bg-foreground-secondary/60 ml-1"
+          <div className="mb-4 flex items-center gap-3">
+            <Image
+              src="/images/twitter-avatar.jpg"
+              alt="Bhabuk's profile picture"
+              width={40}
+              height={40}
+              className="h-10 w-10 rounded-full border border-foreground/20 object-cover"
             />
-          </motion.div>
-
-          {/* Name with glitch */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="relative"
-          >
-            <h1 
-              className={`max-w-[11ch] text-2xl leading-tight sm:max-w-none sm:text-3xl md:text-4xl lg:text-5xl tracking-wider uppercase ${
-                glitchActive ? 'glitch' : ''
-              }`}
-              style={{ fontFamily: 'var(--font-geist-pixel-square), monospace' }}
-              data-text="Bhabuk Bhattarai"
-            >
-              Bhabuk Bhattarai
-            </h1>
-          </motion.div>
-
-          {/* Typing effect description */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="max-w-xl font-mono text-sm text-foreground-secondary/80 md:text-base"
-          >
-            <TypewriterText
-              text="I build for the web and write about what I learn along the way."
-              delay={1}
-            />
-          </motion.div>
-
-          {/* Pixel grid decoration */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ delay: 1.2, duration: 0.8, ease: [0.25, 0.1, 0.25, 1.0] }}
-            className="origin-left pt-10 sm:pt-12"
-          >
-            <div className="flex gap-1 opacity-20">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ opacity: [0.2, 0.6, 0.2] }}
-                  transition={{ 
-                    duration: 2, 
-                    repeat: Infinity, 
-                    delay: i * 0.1,
-                    ease: "easeInOut" 
-                  }}
-                  className="w-1 h-1 bg-foreground-secondary"
-                />
-              ))}
+            <div className="font-mono text-sm leading-tight">
+              <div className="font-medium text-foreground">Bhabuk</div>
+              <div className="text-foreground-secondary/60">web dev</div>
             </div>
-          </motion.div>
+          </div>
+
+          <p className="max-w-2xl font-mono text-sm leading-relaxed text-foreground-secondary/80 md:text-base">
+            I&apos;m a{" "}
+            <Image
+              src="/images/ts-logo.svg"
+              alt="TypeScript"
+              width={14}
+              height={14}
+              unoptimized
+              className="mr-1 inline-block h-3.5 w-3.5 align-[-3px]"
+            />
+            guy at Butwal Web. I make niche tools, write about what I&apos;m learning, and play with
+            digital art.{" "}
+            <Link
+              href="/blog/about"
+              className="ml-2 font-mono text-xs text-green-500/80 transition-colors hover:text-green-500 hover:underline hover:underline-offset-4"
+            >
+              read more
+            </Link>
+          </p>
         </motion.div>
       </div>
-
-      <style jsx>{`
-        @keyframes glitch {
-          0% { transform: translate(0) }
-          20% { transform: translate(-2px, 2px) }
-          40% { transform: translate(-2px, -2px) }
-          60% { transform: translate(2px, 2px) }
-          80% { transform: translate(2px, -2px) }
-          100% { transform: translate(0) }
-        }
-        
-        .glitch {
-          animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both;
-        }
-        
-        .glitch::before,
-        .glitch::after {
-          content: attr(data-text);
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
-        
-        .glitch::before {
-          animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) reverse both;
-          color: #00ffff;
-          z-index: -1;
-          clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-        }
-        
-        .glitch::after {
-          animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both;
-          color: #ff00ff;
-          z-index: -2;
-          clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
-        }
-      `}</style>
     </section>
-  )
-}
-
-function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
-  const [displayText, setDisplayText] = useState("")
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (currentIndex < text.length) {
-        setDisplayText(prev => prev + text[currentIndex])
-        setCurrentIndex(prev => prev + 1)
-      }
-    }, delay + currentIndex * 9)
-
-    return () => clearTimeout(timeout)
-  }, [currentIndex, text, delay])
-
-  return (
-    <span>
-      {displayText}
-      {currentIndex < text.length && (
-        <motion.span
-          animate={{ opacity: [1, 0] }}
-          transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
-          className="inline-block w-2 h-4 bg-foreground-secondary/60 ml-1"
-        />
-      )}
-    </span>
   )
 }

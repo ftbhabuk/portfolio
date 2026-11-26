@@ -1,3 +1,4 @@
+import { ArtSection } from "@/components/art-section"
 import { BlogSection } from "@/components/blog-section"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/hero-section"
@@ -12,6 +13,7 @@ export default function Home() {
     <SiteShell>
       <HeroSection />
       <WorkSection />
+      <ArtSection />
       <BlogSection posts={posts} />
       <Footer />
     </SiteShell>
