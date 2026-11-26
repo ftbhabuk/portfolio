@@ -40,3 +40,4 @@ next-env.d.ts
 .codex
 # generated blog assets (content/blog -> public/blog)
 /public/blog
+content/blog/about.md
